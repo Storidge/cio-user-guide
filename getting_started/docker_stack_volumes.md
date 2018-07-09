@@ -1,8 +1,8 @@
-# Using volumes with Docker Stack
+# Volumes with Docker Compose
 
-Volumes are useful for distributed applications launched as a docker stack.
+Volumes are useful for distributed applications launched as a docker compose or stack file. 
 
-The following example demonstrates how to create a docker compose file to launch a stack made up of a wordpress service with a mysql database dependency.
+The following example demonstrates how to create a docker compose (stack) file to launch a wordpress service with a mysql database dependency.
 
 First create the docker compose file `wordpress-mysql.yml`:
 ```

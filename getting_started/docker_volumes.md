@@ -1,4 +1,4 @@
-# Using volumes with Docker
+# Volumes with Docker CLI
 
 Volumes can also be used with Docker containers, services, and [stacks](docker_stack_volumes.html) through the cio volume plugin.
 
