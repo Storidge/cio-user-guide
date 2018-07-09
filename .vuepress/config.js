@@ -24,6 +24,16 @@ module.exports = {
             ]
           },
           {
+            title: 'CIO vs Others',
+            collapsable: true,
+            children: [
+              '/cio_vs_others/overview.md',
+              '/cio_vs_others/enterprise_storage_systems.md',
+              '/cio_vs_others/software_defined_storage.md',
+              '/cio_vs_others/cloud_native_storage.md'
+            ]
+          },
+          {
             title: 'Getting Started',
             collapsable: true,
             children: [
@@ -42,16 +52,6 @@ module.exports = {
               '/getting_started/remove_node.md',
               '/getting_started/add_node.md',
               '/getting_started/teardown.md'
-            ]
-          },
-          {
-            title: 'CIO vs Others',
-            collapsable: true,
-            children: [
-              '/cio_vs_others/overview.md',
-              '/cio_vs_others/enterprise_storage_systems.md',
-              '/cio_vs_others/software_defined_storage.md',
-              '/cio_vs_others/cloud_native_storage.md'
             ]
           }
         ]
