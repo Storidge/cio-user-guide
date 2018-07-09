@@ -17,7 +17,7 @@ After adding all storage nodes, return to this node and run following command to
 ```
 The first node, from which the `cioctl create` command is run, becomes the sds controller node (c1 in example above). This node is identified as the sds node when the `cio node ls` command is run.
 
-**Single node cluster**
+<h3>Single node cluster</h3>
 
 If you are configuring a single node cluster, just run the `cioctl init` command to complete initialization of the cluster.
 ```
@@ -32,7 +32,7 @@ cluster: Synchronizing VID files
 cluster: Starting API
 ```
 
-**Multi node cluster**
+<h3>Multi node cluster</h3>
 
 The output of the create sub-command includes a `cioctl join` command to add new nodes to the cluster. Add nodes by running the `cioctl join` command on each new node.
 
@@ -60,13 +60,13 @@ cluster: Synchronizing VID files
 cluster: Starting API
 ```
 
-**Initializing bare metal servers with SSDs**
+<h3>Initializing bare metal servers with SSDs</h3>
 
 The initialization process will take a few minutes to complete for virtual servers. The cio software currently does not characterize performance on virtual servers. A 'virtual' IOPS budget is used instead.
 
 When the cio software is installed on physical servers with high performance devices such as SSDs, the first initialization of the cluster will take about 30 minutes. This extra time is used to characterize the available performance. This performance information is used in the quality-of-service (QoS) feature to deliver guaranteed performance for individual applications.
 
-**Ready To Use**
+<h3>Ready To Use</h3>
 
 If Kubernetes is not detected, the cio software will automatically configure a Docker Swarm cluster. The following example shows a Swarm cluster with three manager nodes and one worker node.
 ```
