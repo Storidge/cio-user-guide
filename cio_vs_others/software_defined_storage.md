@@ -3,18 +3,18 @@ As traditional data centers evolved toward virtualized data centers, hardware ce
 
 The standard storage interfaces, such as NFS or ISCSI, can be integrated into orchestration systems through volume plugins. As with legacy storage, the applications supported by SDS were mostly monolithic and static. However, cloud native apps are orchestrated, scalable, mobile and storage agnostic.
 
-<h2>Automation</h2>
+##Automation
 
 When SDS first appeared, the need for distributed storage was obvious but implementations were directed at virtualized datacenters which lacked automation. Volumes for applications were manually provisioned through a UI or sometimes through CLI scripting. While volume plugins for SDS can automate provisioning, it does not eliminate the need for manual effort and time to manage the distributed storage systems. Storidge's CIO is architected to automate storage infrastructure management so enterprises can focus on applications.
 
-<h2>Scalability</h2>
+##Scalability
 
 Cloud native apps scale vertically. You can run more containers than VMs on the same host resulting in greater contention. 
 SDS solutions incur high latency costs running in a VM. This makes is very difficult to manage application performance. While it is possible to set max performance limits to alleviate noisy neighbor issues, it is impossible to guarantee minimum performance. Providing automated performance management for apps is a CIO capability that enables cloud native apps to scale predictably. 
 
 The high latency costs of running storage in a VM also makes it a poor fit for NVMe flash. They can only deliver a small fraction of the performance capability, resuling in inefficient use of resources. CIO's design is optimized for low latency to deliver performance from the fastest storage media.
 
-<h2>Mobility</h2>
+##Mobility##
 
 Cloud native apps move frequently to different nodes as part of a workflow, batch process, version upgrade, etc. This container movement introduces variable latency as stateful apps access data across a network. While not an issue for many applications, it can be unacceptable for latency sensitive applications, such as databases.
 
