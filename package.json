@@ -4,7 +4,8 @@
   "description": "User guide to step new users through cio commands",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vuepress build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Storidge/cio-userguide/issues"
   },
-  "homepage": "https://github.com/Storidge/cio-userguide#readme"
+  "homepage": "https://github.com/Storidge/cio-userguide#readme",
+  "dependencies": {
+    "vuepress": "^0.14.10"
+ }
 }
