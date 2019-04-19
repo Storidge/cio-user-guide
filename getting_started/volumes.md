@@ -9,9 +9,7 @@ To create a volume and pass it to an application with a bind mount directory, us
  
 Upon execution, CIO automatically allocates the capacity to provision the volume, format a filesystem and mount it. The filesystem is accessible through /cio/volumes/$ID by default, where $ID represents the volume number. In the above example, the $ID is ‘vd2’. 
 
-
-
-
+```
 volume create parameters
 
 -b | --bandwidth [min BW] <max BW>   set bandwidth boundaries in MB/s, cannot be used at
@@ -26,9 +24,9 @@ volume create parameters
 -q | --quiet                         show vdisk ID
 -T | --thick                         use thick provisioning
 -v | --volume <volume name>          volume name
+```
 
 If all parameters are left blank, then a volume is created with default parameters shown below: 
-
 
 Upon creation, a volume is instantly available for use. It can also be inspected, moved, modified or removed. Metadata about a volume is displayed with: 
  
