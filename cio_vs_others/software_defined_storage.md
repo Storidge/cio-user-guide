@@ -1,21 +1,23 @@
 # Software Defined Storage
+As traditional data centers evolved toward virtualized data centers, hardware centric storage systems started becoming “software defined”. These software defined storage (SDS) implementations were usually delivered as virtual storage appliances, i.e. storage software running in VMs. The designs mostly implemented distributed storage that exported volumes through standard storage interfaces. 
 
-As data centers evolved from the fixed three tier model towards a virtualized data center, many storage solutions were implemented as “software defined”. These implementations rely on a system component called a hypervisor. Most software defined storage (SDS) solutions were delivered as virtual storage appliances, i.e. software running in a virtual server. While hypervisors and virtual servers consume system resources, they do provide secure isolation in multi-tenant environments such as the public cloud. 
-
-Within a cloud native environment, hypervisors and virtual servers consume system resources and increases system response time, i.e. adds latency. For efficiency, hypervisors are eliminated particularly on bare metal servers. The increased response time due to running in virtual servers means that software defined storage generally cannot provide performance isolation or quality of service capabilities for applications. 
-
-implemented before need for automation with orchestration was obvious
-
-consistent hash fixking location
-
-not well positioned to leverage low latency tech like nvme
-
-Most current SDS software vendors target the virtualized server and ESX hypervisor market. The products were developed for an era where the primary management interface in the data center was a human operated GUI. While software driven interfaces can be tacked on, architecturally they are not a good fit for the real time provisioning, agility, scalability and operating efficiencies of container based applications. 
+The standard storage interfaces, such as NFS or ISCSI, can be integrated into orchestration systems through volume plugins. As with legacy storage, the applications supported by SDS were mostly monolithic and static. However, cloud native apps are orchestrated, scalable, mobile and storage agnostic.
 
 
-In secure environments, hypervisors are eliminated for efficiency. Another drawback is hypervisors and virtual servers increase system response time so much that performance isolation is not possible for applications. 
-Storidge is designed to use system resources effectively and provide the performance isolation that cloud native apps need to scale efficiently. 
+**Automation**
 
+When SDS first appeared, the need for distributed storage was obvious but implementations were directed at virtualized datacenters which lacked automation. Volumes for applications were manually provisioned through a UI or sometimes through CLI scripting. While volume plugins for SDS can automate provisioning, it does not eliminate the need for manual effort and time to manage the distributed storage systems. Storidge's CIO is architected to automate storage infrastructure management so enterprises can focus on applications.
 
+**Scalability**
 
+Cloud native apps scale vertically. You can run more containers than VMs on the same host resulting in greater contention. 
+SDS solutions incur high latency costs running in a VM. This makes is very difficult to manage application performance. While it is possible to set max performance limits to alleviate noisy neighbor issues, it is impossible to guarantee minimum performance. Providing automated performance management for apps is a CIO capability that enables cloud native apps to scale predictably. 
+
+**Mobility**
+
+Cloud native apps move frequently to different nodes as part of a workflow, batch process, version upgrade, etc. This container movement introduces variable latency as stateful apps access data across a network. While not an issue for many applications, it can be unacceptable for latency sensitive applications, such as databases.
+
+Many SDS implementations use a computed hash to determine an address for data. This binds the data to a fixed location and makes it impossible to use data locality to mitigate network latencies. Storidge's CIO includes both storage orchestration to move a volume to the container and [automated data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/) to ensure frequently accessed data is close to the application.
+
+SDS solutions can be integrated through plugins to provision persistent storage for containerized apps. However as data centers become more software defined and adoption of low latency devices and protocols such as NVME ramps, SDS solutions face a lot of challenges. Truly addressing the needs of cloud native apps is why Storidge developed cloud native storage.
 

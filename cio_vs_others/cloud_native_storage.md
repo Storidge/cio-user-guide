@@ -1,6 +1,6 @@
 # Cloud Native Storage
 
-Stateful cloud native apps present new challenges for storage and data management. These containerized apps run in orchestrated environments, are highly scalable, short lived and mobile. Given these unique challenges, a number of startups concluded that a purpose built storage solution is the right approach for cloud native apps. Cloud native storage generally demonstates deeper integration, with some solutions interacting at the container runtime level, and some adding capabilities through custom API extensions. 
+Stateful cloud native apps present new challenges for storage and data management. These containerized apps run in orchestrated environments, are highly scalable, short lived and mobile. Given these unique challenges, a number of startups concluded that a purpose built storage solution is the right approach for cloud native apps. Cloud native storage generally demonstates deeper integration with orchestration systems, with some solutions interacting at the container runtime level, and some adding capabilities through custom API extensions. 
 
 While the goals are similar, cloud native storage implementations differ greatly in terms of operational impact and benefits.
 
@@ -17,7 +17,7 @@ Cloud native storage assigning volume replicas to fixed nodes have limited flexi
 
 ## Performance Guarantees
 
-Compared to VMs, you can run a lot more containers on the same host resulting in greater contention for performance. Ensuring consistent performance is a "day two" operational challenge that hits production clusters. 
+Compared to VMs, you can run a lot more containers on the same host resulting in greater contention for performance. Ensuring consistent performance is a "day two" operational reality that hits production clusters. 
 
 While some cloud native storage support 'high' and 'low' performance settings, almost all do not provide minimum performance guarantees. Storidge's CIO ensures logical and performance isolation between adjacent applications. Performance boundaries can be set or changed to meet growing demands. Minimum performance guarantees allow operations to easily manage and scale application performance predictably. 
 
