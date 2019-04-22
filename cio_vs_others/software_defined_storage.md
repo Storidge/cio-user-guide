@@ -19,5 +19,5 @@ Cloud native apps move frequently to different nodes as part of a workflow, batc
 
 Many SDS implementations use a computed hash to determine an address for data. This binds the data to a fixed location and makes it impossible to use data locality to mitigate network latencies. Storidge's CIO includes both storage orchestration to move a volume to the container and [automated data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/) to ensure frequently accessed data is close to the application.
 
-SDS solutions can be integrated through plugins to provision persistent storage for containerized apps. However as data centers become more software defined and adoption of low latency devices and protocols such as NVME ramps, SDS solutions face a lot of challenges. Truly addressing the needs of cloud native apps is why Storidge developed cloud native storage.
+SDS solutions can be integrated through plugins to provision persistent storage for containerized apps. However as data centers become more software defined and adoption of low latency devices and protocols such as NVME ramps, SDS solutions running in VMs face a lot of challenges. Truly addressing the needs of cloud native apps is why Storidge developed cloud native storage.
 
