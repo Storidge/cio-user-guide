@@ -20,5 +20,6 @@
   "homepage": "https://github.com/Storidge/cio-userguide#readme",
   "dependencies": {
     "vuepress": "^0.14.10"
- }
+  },
+  "devDependencies": {}
 }

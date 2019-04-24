@@ -1,8 +1,8 @@
 // /.vuepress/config.js
 
 module.exports = {
-    title: '',
-    description: "CIO User Guide",
+    title: '', // Title of the website
+    description: "A quick walkthrough of CIO capabilities",
     themeConfig: {
         logo: 'https://storidge.com/wp-content/uploads/2019/04/logo_storidge_automated_2_370x100.png',
         lastUpdated: 'Last Updated',
