@@ -4,6 +4,8 @@ Orchestration systems create an abstraction layer on top of a group of hosts, so
 
 The CIO software runs on virtual machines, cloud instances and bare metal hosts. This means developers can easily create environments for stateful application development and testing that operates the same as production clusters. This flexibility helps eliminate "works on my machine" situations that slow development. 
 
+![cio abstraction layer](../images/cio-abstraction-layer.png)
+
 ## Why CIO?
 Cloud native apps are orchestrated, scalable, mobile and storage agnostic. These traits make older storage technologies a poor fit. Storidge's CIO was purpose built to solve data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies and tedium in trying to integrate external networked storage to an orchestrated environment. 
 
