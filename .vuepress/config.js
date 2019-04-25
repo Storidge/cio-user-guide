@@ -11,9 +11,9 @@ module.exports = {
         sidebarDepth: 3,
         nav: [
             { text: 'Home', link: 'https://storidge.com', },
+            { text: 'Support', link: 'https://storidge.com/support' },
             { text: 'Docs', link: 'https://docs.storidge.com' },
-            { text: 'API', link: 'https://storidge.com/api' },
-            { text: 'GitHub', link: 'https://github.com/storidge' }
+            { text: 'API', link: 'https://storidge.com/api' }
         ],
         sidebar: [
           {
@@ -21,16 +21,6 @@ module.exports = {
             collapsable: true,
             children: [
               '/what_is_cio/introduction.md'
-            ]
-          },
-          {
-            title: 'CIO vs Others',
-            collapsable: true,
-            children: [
-              '/cio_vs_others/overview.md',
-              '/cio_vs_others/enterprise_storage_systems.md',
-              '/cio_vs_others/software_defined_storage.md',
-              '/cio_vs_others/cloud_native_storage.md'
             ]
           },
           {
@@ -44,6 +34,16 @@ module.exports = {
               '/getting_started/using_profiles.md',
               '/getting_started/labels.md',
               '/getting_started/teardown.md'
+            ]
+          },
+          {
+            title: 'CIO vs Others',
+            collapsable: true,
+            children: [
+              '/cio_vs_others/overview.md',
+              '/cio_vs_others/enterprise_storage_systems.md',
+              '/cio_vs_others/software_defined_storage.md',
+              '/cio_vs_others/cloud_native_storage.md'
             ]
           }
         ]
