@@ -29,7 +29,7 @@ Built on a foundation for storage automation, the CIO software makes development
 
 - Save money by sharing and reusing the same tools, practices and experiences across different platforms
 
-- Bring development environment closer to production to shorten release cycles, as problems are discovered and resolved earlier
+- Bring development environment closer to production to shorten release cycles. Eliminate "works on my machine" problems and resolve issues earlier
 
 - Avoid 3 am emergencies with storage that's automated for orchestration systems and backend storage operations
 
