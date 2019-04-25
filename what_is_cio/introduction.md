@@ -11,13 +11,29 @@ Cloud native apps are orchestrated, scalable, mobile and storage agnostic. These
 
 Built on a foundation for storage automation, the CIO software makes development teams more productive, and operations teams more efficient.
 
-### For Developers
-CIO's abstraction layer isolates dependencies on underlying infrastructure. This enables developers to work within their native environment (e.g. Docker CLI) and focus on writing applications. 
+## CIO for Developers
 
-The CIO software can be easily deployed with industry standard tools such as Vagrant and Terraform. For example, once a Vagrantfile is created, other team members can easily create their own development clusters with the same environment, dependencies and configuration. 
+- Use standard tools such as Vagrant and Terraform to spin up faster and consistently deploy environment for stateful application development
 
-### For Operators
+- Share so other team members can easily create their own development clusters with the same environment, dependencies and configuration
 
-CIO's abstraction layer isolates dependencies on underlying infrastructure. For operators this reduces cloud lock-in as applications and data become more portable, and tools, practices and experiences are consistent and reusable across different platforms.
+- Eliminate environment inconsistencies by using CIO to isolate dependencies on underlying infrastructure
 
-The CIO software runs on virtual machines, cloud instances and bare metal hosts. This flexibility allows developers to write and test applications in environments similar to production. Bringing production environments closer to development shorten release cycles, as problems are discovered and resolved earlier. 
+- Work within your native development environment instead of spending time learning and coding to every cloud provider APIs
+
+- Make CIO a component of your application stack so your apps always have automated storage-as-a-service available 
+
+## CIO for Operations
+
+- Make apps and data more portable, and reduce cloud lock-in by isolating dependencies on underlying infrastructure
+
+- Save money by sharing and reusing the same tools, practices and experiences across different platforms
+
+- Bring development environment closer to production to shorten release cycles, as problems are discovered and resolved earlier
+
+- Avoid 3 am emergencies with storage that's automated for orchestration systems and backend storage operations
+
+- Future proof investments with platform that supports legacy and cloud native application
+
+
+
