@@ -30,6 +30,7 @@ module.exports = {
               '/getting_started/install.md',
               '/getting_started/initialize.md',
               '/getting_started/volumes.md',
+              '/getting_started/docker_volumes.md',
               '/getting_started/why_profiles.md',
               '/getting_started/using_profiles.md',
               '/getting_started/labels.md',
