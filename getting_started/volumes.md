@@ -1,6 +1,10 @@
 # Using volumes
 
-Volumes are used by applications for persistent storage. They can be created using the `cio volume create` command with the following options:
+Volumes are used by applications for persistent storage.
+
+<h3>Create volumes</h3>
+
+Volumes can be created using the `cio volume create` command with the following options:
 
 ```
 volume create parameters
@@ -55,7 +59,13 @@ If all parameters are left blank, then a volume is created with default paramete
 ```
 $ cio volume create
 Succeed: Add vd2: Type:2-copy, Size:20GB
+```
 
+<h3>Inspect volumes</h3>
+
+Upon creation, a volume is instantly available for use. It can also be inspected, moved, modified or removed. Metadata about a volume is displayed with the `cio volume info` command shown below:
+
+```
 $ cio volume info -V 2
 vdisk                          2
 uuid                           65854342
@@ -79,14 +89,18 @@ labels
 allocated                      0.2%
 ```
 
-Upon creation, a volume is instantly available for use. It can also be inspected, moved, modified or removed. Metadata about a volume is displayed with the `cio volume info` command shown above.
+<h3>List Volumes</h3>
 
-The command `cio volume move` moves a volume from its current node to the specified node, if the volume is not open or in use. The command format is:
+A list of volumes on a cluster can be viewed using the command `cio volume ls`:
 
 ```
-$ cio volume move foo -n v2
-Succeed: Move vd2 from 99f8673e to f2385660
+$ cio volume ls
+NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
+u3                   vd1       SSD   2-copy                  20GB  32621920  portainer         
+u1                   vd2       SSD   3-copy                  10GB  6fd038a5  wp_mysql-data   
 ```
+
+<h3>Update volumes</h3>
 
 To modify the parameters of a volume, such as the capacity and the IOPS, use the command `cio volume update $volume_name`. It takes the same parameters as `volume create`, except a target volume is mandatory.
 For example, this command will update the capacity of the portainer volume from 20GB to 25 GB:
@@ -95,6 +109,8 @@ For example, this command will update the capacity of the portainer volume from 
 $ cio volume update portainer -c 25
 Succeed: Update vd1 capacity: increased to 25GB
 ```
+
+<h3>Remove volumes</h3>
 
 Finally, to delete a volume, simply use `cio volume rm $volume_name`. You must confirm that the volume being deleted is correct. To skip the prompt, use the -y flag. Example:
 

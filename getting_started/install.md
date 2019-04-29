@@ -24,6 +24,13 @@ cio software installation complete. cio requires a minimum of 3 local drives per
 Please verify local drives are available, then run 'cioctl create' command on primary node to start a new cluster
 ```
 
+To check what version of cio is installed on a node run `cio version`:
+
+```
+$ cio version
+Version: V0.9.0-2762
+```
+
 **Install Additional Nodes**
 
 Add more nodes to the cluster to increase capacity and enable high availability for your applications. Repeat the convenience script installation on all nodes that will be members of the cluster.

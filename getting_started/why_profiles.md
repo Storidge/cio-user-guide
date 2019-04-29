@@ -1,6 +1,6 @@
 # Why profiles
 
-CIO makes it really easy to manage storage through the concept of profiles. Profiles provide a simple way to declare application requirements through YAML formatted files. They can be used to provision storage for applications, different classes of service, frameworks, customers, etc. 
+CIO makes it really easy to manage storage through the concept of profiles. Profiles provide a simple way to declare application requirements through YAML formatted files. They can be used to provision storage for applications, different classes of service, frameworks, customers, etc.
 
 Profiles already tuned for specific use cases can be saved and reused, making it easier to deliver repeatable and consistent services.
 
@@ -16,12 +16,9 @@ $ docker volume create --name data \
 --opt type=ssd \
 --opt snapshot=-- \
 --opt interval=60 \
---opt snapshotMax=10 
+--opt snapshotMax=10
 ```
-with a profile, do
+with a profile, run:
 ```
 $ docker volume create --driver cio --name data --opt profile=DBDATA
 ```
-
-
-

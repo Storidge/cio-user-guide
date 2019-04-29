@@ -1,7 +1,7 @@
-<center><h1>Get Started with CIO</h1></center>
+<center>Get Started with CIO</center>
 <center><h3>We have a storage solution for you - no matter where you are in your containerization journey</h3></center>
 ---
-This guide [introduces](what_is_cio/introduction.html) key capabilities and benefits of Storidge's Container I/O (CIO) software for developers and IT operations. 
+This guide [introduces](what_is_cio/introduction.html) key capabilities and benefits of Storidge's Container I/O (CIO) software for developers and IT operations.
 
 The [Getting Started](/getting_started/install.html) section steps through software installation, creation of a cluster, and highlights commonly used commands and important use cases.
 

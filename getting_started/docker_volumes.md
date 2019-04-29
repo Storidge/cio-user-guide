@@ -1,8 +1,8 @@
 # Using volumes with Docker
 
-Volumes can also be used with Docker containers and services through the cio volume plugin.
+Volumes can also be used with Docker containers, services, and [stacks](docker_stack_volumes.html) through the cio volume plugin.
 
-### Docker Volumes
+<h3>Docker volumes</h3>
 
 This example demonstrates how to create the docker volume foo using the cio driver and an option to set its capacity to 15GB:
 
@@ -26,7 +26,7 @@ cio:latest          portainer
 
 An easier way to configure volume options is through the use of profiles. This is explained in greater detail in the next two sections: [Why profiles](why_profiles.html) and [Using profiles](using_profiles.html).
 
-### Docker containers
+<h3>Docker containers</h3>
 
 Volumes can be attached to docker containers either through the -v or --mount flags. The next two examples demonstrate how to launch a docker container running alpine and connect the volume foo to it.
 
@@ -43,7 +43,7 @@ $ docker run -it --mount source=foo,target=/tmp,volume-driver=cio --name foo alp
 
 If the docker volume foo already exists then it will be attached to the containers, otherwise a new volume foo will be generated.
 
-### Docker services
+<h3>Docker services</h3>
 
 Volumes can similarly be used with docker services and created using the --mount flag. In this example a mysql service is launched using the cio volume driver and the MYSQL profile:
 ```

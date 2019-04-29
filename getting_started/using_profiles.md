@@ -47,14 +47,15 @@ $ docker service create \
 --name mysql \
 mysql
 ```
-To use a profile in a `cio volume create` command, simply reference it using the `-p` or `--profile` flag in a$
+To use a profile in a `cio volume create` command, simply reference it using the `-p` or `--profile` flag:
 ```
 $ cio volume create test --profile TEST
 ```
 
 <h3>Remove profile</h3>
 
+To remove a profile from the cio datastore use `cio profile rm`:
+
 ```
 $ cio profile rm TEST
 ```
-
