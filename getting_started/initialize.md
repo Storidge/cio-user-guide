@@ -42,7 +42,9 @@ Note: If you are testing a single-node cluster you do not need to run the `cioct
 
 **Initializing bare metal servers with SSDs**
 
-The initialization process will take a few minutes to complete for virtual servers. However, when the cio software is installed on physical servers with high performance devices such as SSDs, the first initialization of the cluster will take about 30 minutes. This extra time is used to characterize the available performance. The performance information is used in the quality-of-service (QoS) feature to deliver guaranteed performance for individual applications.
+The initialization process will take a few minutes to complete for virtual servers. The cio software currently does not characterize performance on virtual servers. A 'virtual' IOPS budget is used instead.
+
+When the cio software is installed on physical servers with high performance devices such as SSDs, the first initialization of the cluster will take about 30 minutes. This extra time is used to characterize the available performance. This performance information is used in the quality-of-service (QoS) feature to deliver guaranteed performance for individual applications.
 
 **Ready To Use**
 
