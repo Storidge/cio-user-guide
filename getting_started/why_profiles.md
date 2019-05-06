@@ -14,7 +14,7 @@ $ docker volume create --name data \
 --opt iopsmax=8000 \
 --opt level=2 \
 --opt type=ssd \
---opt snapshot=-- \
+--opt snapshot=yes \
 --opt interval=60 \
 --opt snapshotMax=10
 ```
