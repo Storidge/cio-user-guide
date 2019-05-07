@@ -4,12 +4,12 @@ A convenience script installs the community edition of cio software into your de
 
 Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). After verifying you have a supported distribution, run the script below to begin installation.
 
-`curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash`
+`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 Example:
 
 ```
-root@c1:~# curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash
+root@c1:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 Started installing release 2148 at Tue Jan 30 12:47:26 PST 2018
 Loading cio software for: u16  (4.4.0-104-generic)
 ...
