@@ -7,7 +7,7 @@ Snapshots save a volume's state at a certain time. They are useful for catalogui
 To create snapshots of volumes snapshots must first be enabled. This is accomplished with the `-s` or `--snapshot` flag during volume creation:
 
 ```
-$ cio volume create foo -s
+$ cio volume create foo --snapshot yes
 Succeed: Add vd2: Type:2-copy, Size:20GB
 ```
 
@@ -23,7 +23,7 @@ Succeed: Created a snapshot of '/cio/vd2' in '/cio/vd2/.snap/2019-04-28-0345-053
 You can also create a volume that automatically saves periodic snapshots. The following example creates a volume which will save a snapshot every hour and keep a maximum of the 10 latest snapshots saved:
 
 ```
-$ cio volume create foo -s --interval 60 --snapshotMax 10
+$ cio volume create foo --snapshot yes --interval 60 --snapshotMax 10
 Succeed: Add vd2: Type:2-copy, Size:20G
 ```
 
