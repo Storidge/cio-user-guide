@@ -35,6 +35,7 @@ module.exports = {
               '/getting_started/why_profiles.md',
               '/getting_started/using_profiles.md',
               '/getting_started/snapshots.md',
+              '/getting_started/high_availability.md',
               '/getting_started/labels.md',
               '/getting_started/teardown.md'
             ]
