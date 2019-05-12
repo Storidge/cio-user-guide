@@ -1,95 +1,108 @@
-# High availability
+# HA for stateful apps
 
-High availability refers to the amount of time during which a service is both responsive and available to the user. A highly available system is continuously running most of the time and is quickly restored if it goes down. This requires having fault-detecting mechanisms in place that trigger recovery as well as backups.
+When you have services in production, the priority is to run these services continuously or with minimal interruptions. Delivering a consistent level of operational performance for applications is described as providing high availability (HA). Achieving this objective requires the underlying infrastructure to recover from both physical and software component failures with minimal impact to users.
 
-<h3>High availability using CIO with Docker</h3>
+An orchestration system that scales applications across multiple nodes makes it simple to deliver HA for stateless applications. On the other hand, delivering HA for stateful apps is a lot more challenging. 
 
-The Docker Swarm is a great tool for achieving high availability- if a node fails the scheduler simply moves and restarts the service on another node in the swarm. Its only drawback is that data cannot be so easily carried over. Storidge's CIO patches this hole by swiftly and fluidly moving volumes around a cluster. Combined, Docker Swarm and CIO provide a simple way to build and manage high availability systems which can be rebuilt quickly and automatically with all data intact.
+The example below steps through how CIO together with Docker Swarm makes high availability for stateful apps easy.
 
-Using the previous [Docker Stack example](docker_stack_volumes.html) we can see the services and volumes on a 4 node cluster:
+<h3>HA with CIO and Docker Swarm</h3>
+
+Docker Swarm is a great tool for achieving high availability. If a node fails the scheduler simply restarts the service on another node ... which is awesome for stateless apps. Stateful apps however require data on the failed node to be available before restarting. CIO will swiftly and and fluidly move the required volume to the new node where the stateful apps is restarting. Combined, Docker Swarm and CIO makes delivering HA for your stateful applications simple. 
+
+Using the previous [Docker Stack example](docker_stack_volumes.html) we can see the services and volumes on a 4 node cluster.
 
 ```
-root@a1:~$ cio node ls
+root@v1:~# cio node ls
 NODENAME             IP                NODE_ID    ROLE       STATUS
-a1                   172.31.20.244     049a522f   sds        normal     
-a2                   172.31.23.155     542d6d8e   backup1    normal     
-a3                   172.31.26.219     635c0ab8   backup2    normal     
-a4                   172.31.28.40      768de531   standard   normal   
+v1                   192.168.3.36      f8891810   sds        normal
+v2                   192.168.3.141     e08dc3c4   backup1    normal
+v3                   192.168.3.160     6a41aeba   backup2    normal
+v4                   192.168.3.69      75472452   standard   normal
+```
 
-root@a1:~$ docker service ls
-ID                  NAME                MODE                REPLICAS            IMAGE                          PORTS
-zdn77d7ge2dc        portainer           replicated          1/1                 portainerci/portainer:pr2711   *:9000->9000/tcp
-twr4qr1ccw8f        wp_db               replicated          1/1                 mysql:5.7                      
-gvwsp5y4hvq5        wp_wordpress        replicated          1/1                 wordpress:latest               *:8080->80/tcp
+There are three services and two volumes on this cluster. The portainer service is using volume portainer, and the wp_db service using volume wp_mysql-data. From the `cio volume ls` output we see the portainer service is running on node v2 and the wp_db service is running on node v3. 
+```
+root@v1:~# docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE                        PORTS
+l79f5oyxu84s        portainer           replicated          1/1                 portainer/portainer:latest   *:9000->9000/tcp
+wiwp56tnc7c1        wp_db               replicated          1/1                 mysql:5.7
+pck27fi2thdy        wp_wordpress        replicated          1/1                 wordpress:latest             *:8080->80/tcp
 
-root@a1:~$ cio volume ls
+root@v1:~# cio volume ls
 NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
-a3                   vd1       SSD   2-copy                  20GB  bab2f427  portainer         
-a2                   vd8       SSD   3-copy                  10GB  8f4fcc9a  wp_mysql-data
+v2                   vd1       SSD   2-copy                  20GB  371f0802  portainer
+v3                   vd2       SSD   3-copy                  10GB  4bd2f89f  wp_mysql-data
+
+root@v1:~# docker service ps wp_db
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+u3joxz5yfg4h        wp_db.1             mysql:5.7           v3                  Running             Running 45 seconds ago
 ```
 
-There are three services and two volumes on this cluster. The portainer service uses the portainer volume, and the wp_db service uses the wp_mysql-data volume. The services associated with the two volumes will be running in containers on the same nodes (portainer on a3 and wp_db on a2). These are the lists of containers on each node in the cluster:
-
+We force a failure of the database service by power cycling or rebooting node v3. `docker service ls` shows that the wp_db service is interrupted and `cio node ls` shows that node v3 is now in maintenance mode. 
 ```
-root@a1:~$ docker container ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+root@v1:~# docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE                        PORTS
+l79f5oyxu84s        portainer           replicated          1/1                 portainer/portainer:latest   *:9000->9000/tcp
+wiwp56tnc7c1        wp_db               replicated          0/1                 mysql:5.7
+pck27fi2thdy        wp_wordpress        replicated          1/1                 wordpress:latest             *:8080->80/tcp
 
-root@a2:~$ docker container ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                 NAMES
-700c4671f391        mysql:5.7           "docker-entrypoint.s…"   About a minute ago   Up About a minute   3306/tcp, 33060/tcp   wp_db.1.x3hmtx5pabex3rh49p8s8z7tt
-
-root@a3:~$ docker container ps
-CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS               NAMES
-69368c0d5a85        portainerci/portainer:pr2711   "/portainer -H unix:…"   29 minutes ago      Up 29 minutes       9000/tcp            portainer.1.klj8kth1i0ckzzf9z4ehqhzne
-
-root@a4:~$ docker container ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-18cb3307341f        wordpress:latest    "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        80/tcp              wp_wordpress.1.ckmnj5frmf05jjaev9iugh7ba
-```
-
-If node a2 were to go down docker would rebuild the wp_db service on a different node and CIO would move the wp_mysql-data volume over as well. Initially when the node goes down there would be no running wp_db service on the cluster:
-```
-root@a1:~$ cio node ls
+root@v1:~# cio node ls
 NODENAME             IP                NODE_ID    ROLE       STATUS
-a1                   172.31.20.244     049a522f   sds        normal     
-a2                   172.31.23.155     542d6d8e   backup1    maintenance
-a3                   172.31.26.219     635c0ab8   backup2    normal     
-a4                   172.31.28.40      768de531   standard   normal
-
-root@a1:~$ docker service ls
-ID                  NAME                MODE                REPLICAS            IMAGE                          PORTS
-zdn77d7ge2dc        portainer           replicated          1/1                 portainerci/portainer:pr2711   *:9000->9000/tcp
-twr4qr1ccw8f        wp_db               replicated          0/1                 mysql:5.7                      
-gvwsp5y4hvq5        wp_wordpress        replicated          1/1                 wordpress:latest               *:8080->80/tcp
+v1                   192.168.3.36      f8891810   sds        normal
+v2                   192.168.3.141     e08dc3c4   backup1    normal
+v3                   192.168.3.160     6a41aeba   backup2    maintenance
+v4                   192.168.3.69      75472452   standard   normal
 ```
 
-Soon after node a2 goes down the wp_db service is scheduled to start running on a healthy node, in this case a1:
+When we check the wp_db service again, we find that the CIO storage orchestrator has moved the wp_mysql_data volume to node v1. This enables the scheduler to restart the wp_db service on node v1.
 ```
-root@@a1:~$ docker service ls
-ID                  NAME                MODE                REPLICAS            IMAGE                          PORTS
-zdn77d7ge2dc        portainer           replicated          1/1                 portainerci/portainer:pr2711   *:9000->9000/tcp
-twr4qr1ccw8f        wp_db               replicated          1/1                 mysql:5.7                      
-gvwsp5y4hvq5        wp_wordpress        replicated          1/1                 wordpress:latest               *:8080->80/tcp
-
-root@a1:~$ sudo docker container ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
-9f41eeeb9ec9        mysql:5.7           "docker-entrypoint.s…"   4 minutes ago       Up 4 minutes        3306/tcp, 33060/tcp   wp_db.1.4jxusm7mh6rpyniw24w748hrl
-
-root@a3:~$ sudo docker container ps
-CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS               NAMES
-69368c0d5a85        portainerci/portainer:pr2711   "/portainer -H unix:…"   About an hour ago   Up About an hour    9000/tcp            portainer.1.klj8kth1i0ckzzf9z4ehqhzne
-
-root$ sudo docker container ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-18cb3307341f        wordpress:latest    "docker-entrypoint.s…"   26 minutes ago      Up 26 minutes       80/tcp              wp_wordpress.1.ckmnj5frmf05jjaev9iugh7ba
-```
-
-CIO then moves the wp_mysql-data volume to accompany the wp_db service on node a1:
-```
-root@a1:~$ cio volume ls
+root@v1:~# cio volume ls
 NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
-a3                   vd1       SSD   2-copy                  20GB  bab2f427  portainer         
-a1                   vd8       SSD   3-copy                  10GB  8f4fcc9a  wp_mysql-data  
+v3                   vd1       SSD   2-copy                  20GB  371f0802  portainer
+v1                   vd2       SSD   3-copy                  10GB  4bd2f89f  wp_mysql-data
+
+root@v1:~# docker service ps wp_db
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE                ERROR               PORTS
+66sobowbqmnd        wp_db.1             mysql:5.7           v1                  Running             Running about a minute ago
+u3joxz5yfg4h         \_ wp_db.1         mysql:5.7           v3                  Shutdown            Shutdown 26 seconds ago
 ```
 
-The revival of the wp_db service took under a minute and required no manual resolution. This lightweight solution automates rebuilding failed services and retaining their data, providing an elegant approach to high availability systems.
+So in less than a minute, the wp_db service is automatically back up and running!
+
+<h3>Data recovery</h3>
+Well it's great that the database service is available again but what happened to the data that was on node v3? Checking the event log with <code>cio events</code>, we find:
+<ol>
+  <li>There was a node failover event</li>
+  <li>Rebuild processes were started to restore data redundancy</li>
+  <li>The volume rebuilds were completed successfully</li>
+  <li>Volume wp_mysql-data had a locality rebuild making data local to ensure consisent performance</li>
+</ol>
+
+```
+root@v1:~# cio events 
+05/12/2019-20:51:04 [info] [DFS] node (6a41aeba) failover completed. hostname=v4, ip address=192.168.3.69 :1019
+05/12/2019-20:51:08 [info] [DFS] volume wp_mysql-data (vd2) created on node f8891810:1009
+05/12/2019-20:51:08 [info] [DFS] volume wp_mysql-data (vd2) removed on node 75472452:1011
+05/12/2019-20:51:59 [info] vd0 rebuilding on node f8891810:1003
+05/12/2019-20:51:59 [info] volume wp_mysql-data (vd2) rebuilding on node f8891810:1003
+05/12/2019-20:51:59 [info] volume portainer (vd1) rebuilding on node e08dc3c4:1003
+05/12/2019-20:51:59 [info] volume portainer (vd1) volume rebuild completed, ret:0:1020
+05/12/2019-20:52:00 [info] vd0 volume rebuild completed, ret:0:1020
+05/12/2019-20:52:01 [info] volume wp_mysql-data (vd2) volume rebuild completed, ret:0:1020
+05/12/2019-20:52:08 [info] volume wp_mysql-data (vd2) locality rebuild completed, ret:0:1020
+```
+
+<h3>Node recovery</h3>
+We also check node status with <code>cio node ls</code>. We find that node v3 was 'recoverable' and was automatically added back to the cluster for operation.
+
+```
+root@v1:~# cio node ls
+NODENAME             IP                NODE_ID    ROLE       STATUS
+v1                   192.168.3.36      f8891810   sds        normal
+v2                   192.168.3.141     e08dc3c4   backup1    normal
+v3                   192.168.3.160     6a41aeba   backup2    normal
+v4                   192.168.3.69      75472452   standard   normal
+```
+
+That's amazing! When node v3 failed, the database was restarted onto a new node, data redundancy for the volumes were restored and the cluster recovered, all without operator intervention.
