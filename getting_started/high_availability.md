@@ -71,7 +71,7 @@ u3joxz5yfg4h         \_ wp_db.1         mysql:5.7           v3                  
 So in less than a minute, the wp_db service is automatically back up and running!
 
 <h3>Data recovery</h3>
-Well it's great that the database service is available again but what happened to the data that was on node v3? Checking the event log with <code>cio events</code>, we find:
+It's great that the database service is available again, but what happened to the data that was on node v3? Checking the event log with <code>cio events</code>, we find:
 <ol>
   <li>There was a node failover event</li>
   <li>Rebuild processes were started to restore data redundancy</li>
@@ -92,9 +92,10 @@ root@v1:~# cio events
 05/12/2019-20:52:01 [info] volume wp_mysql-data (vd2) volume rebuild completed, ret:0:1020
 05/12/2019-20:52:08 [info] volume wp_mysql-data (vd2) locality rebuild completed, ret:0:1020
 ```
+Data redundancy was automatially restored for all volumes using resources of the remaining nodes. 
 
 <h3>Node recovery</h3>
-We also check node status with <code>cio node ls</code>. We find that node v3 was 'recoverable' and was automatically added back to the cluster for operation.
+Next we check node status with <code>cio node ls</code>. We find that node v3 was 'recoverable' and was automatically added back to the cluster for operation.
 
 ```
 root@v1:~# cio node ls
@@ -105,4 +106,4 @@ v3                   192.168.3.160     6a41aeba   backup2    normal
 v4                   192.168.3.69      75472452   standard   normal
 ```
 
-That's amazing! When node v3 failed, the database was restarted onto a new node, data redundancy for the volumes were restored and the cluster recovered, all without operator intervention.
+That's amazing! When node v3 failed, the database was restarted onto a new node, data redundancy for the volumes were restored, and the failed node recovered ... all without operator involvement.
