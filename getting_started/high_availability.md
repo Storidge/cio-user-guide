@@ -8,7 +8,7 @@ The example below steps through how CIO together with Docker Swarm makes high av
 
 <h3>HA with CIO and Docker Swarm</h3>
 
-Docker Swarm is a great tool for achieving high availability. If a node fails the scheduler simply restarts the service on another node ... which is awesome for stateless apps. Stateful apps however require data on the failed node to be available before restarting. CIO will swiftly and and fluidly move the required volume to the new node where the stateful apps is restarting. Combined, Docker Swarm and CIO makes delivering HA for your stateful applications simple. 
+Docker Swarm is a great tool for achieving high availability. If a node fails the scheduler simply restarts the service on another node ... which is awesome for stateless apps. Stateful apps however require data on the failed node to be available before restarting. CIO will swiftly and and fluidly move the required volume to the new node where the stateful app is restarting. Combined, Docker Swarm and CIO make delivering HA for your stateful applications simple. 
 
 Using the previous [Docker Stack example](docker_stack_volumes.html) we can see the services and volumes on a 4 node cluster.
 
