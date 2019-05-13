@@ -76,7 +76,7 @@ It's great that the database service is available again, but what happened to th
   <li>There was a node failover event</li>
   <li>Rebuild processes were started to restore data redundancy</li>
   <li>The volume rebuilds were completed successfully</li>
-  <li>Volume wp_mysql-data had a locality rebuild making data local to ensure consisent performance</li>
+  <li>Volume wp_mysql-data had a <a href="https://storidge.com/blog/effortless-data-locality-with-storidge/">locality rebuild</a> making data local to ensure consisent performance</li>
 </ol>
 
 ```
