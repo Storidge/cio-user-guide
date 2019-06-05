@@ -2,7 +2,11 @@
 
 With the cio software installed on all nodes, the next step is to configure a cluster and then initialize the cluster for use. As part of cluster creation, cio will automatically discover and add drive resources from each node into a storage pool. Drives that are partitioned or have a file system will not be added.
 
-Start configuring a cio storage cluster with the `cioctl create` command. Example:
+Start configuring a cio storage cluster with the `cioctl create` command. This generates two command strings. 
+
+The `cioctl join` command string is used to configure additional nodes into the cluster. After configuration, the `cioctl init` command finishes initialization so the cluster is ready for running applications. 
+
+Example:
 ```
 [root@c1 ~]# cioctl create
 Cluster started. The current node is now the primary controller node. To add a storage node to this cluster, run the following command:
@@ -12,6 +16,23 @@ After adding all storage nodes, return to this node and run following command to
     cioctl init f26e695d
 ```
 The first node, from which the `cioctl create` command is run, becomes the sds controller node (c1 in example above). This node is identified as the sds node when the `cio node ls` command is run.
+
+**Single node cluster**
+
+If you are configuring a single node cluster, just run the `cioctl init` command to complete initialization of the cluster.
+```
+[root@c1 ~]# cioctl init f26e695d
+cluster: initialization started
+...
+cluster: Node initialization completed
+cluster: Start cio daemon
+cluster: Succeed: Add vd0: Type:3-copy, Size:20GB
+cluster: MongoDB ready
+cluster: Synchronizing VID files
+cluster: Starting API
+```
+
+**Multi node cluster**
 
 The output of the create sub-command includes a `cioctl join` command to add new nodes to the cluster. Add nodes by running the `cioctl join` command on each new node.
 
@@ -38,7 +59,6 @@ cluster: MongoDB ready
 cluster: Synchronizing VID files
 cluster: Starting API
 ```
-Note: If you are testing a single-node cluster you do not need to run the `cioctl join` command on any additional nodes and can just skip straight to running the `cioctl init` command.
 
 **Initializing bare metal servers with SSDs**
 
