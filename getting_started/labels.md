@@ -1,4 +1,4 @@
-# Add labels
+# Using labels
 
 CIO supports volume labels which can be useful for tagging, versioning, staging notes, licensing information, and general organization. Labels are key-value pairs. They can be viewed by running `cio volume info`. Here is an example of labels in use:
 
