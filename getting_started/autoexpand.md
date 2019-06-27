@@ -82,5 +82,12 @@ labels
 allocated                      3.9%
 ```
 
+<h3>Update auto expansion service</h3>
+
+Once the limit for the number of automatic capacity expansions is reached, the autoexpand service will be disabled. You can re-enable the auto expansion service for a volume with:
+```
+cio volume update VOLUMENAME --autoexpand yes
+```
+
 With the auto expansion service, there are no more worries about individual applications running out of space. Life is much easier because you only need to monitor the capacity of the storage pool.
 
