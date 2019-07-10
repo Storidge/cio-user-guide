@@ -6,6 +6,7 @@ First, identify the name of the node you wish to remove. List the nodes in the c
 ```
 cioctl node remove NODENAME
 ```
+This starts a process to remove metadata of the node from the rest of the cluster. It also starts a rebuild process to ensure redundancy of data in the rest of the cluster, as storage resources on the removed node are deleted.
 
 A removed node can be added back to the cluster by running a `cioctl join-token` command and then the `cioctl add ...` command string. However the node will be treated as a new node as all previous history has been erased. 
 

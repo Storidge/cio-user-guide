@@ -5,12 +5,12 @@ Expand available capacity and performance by adding new nodes to a cluster.
 Start the node addition by running the `cioctl join-token` command. This generates a command string for adding a new node. Example:
 ```
 root@t1:~# cioctl join-token
-    cioctl node add 192.168.3.122 root c3a504d2
+    cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
 ```
 
 Copy and run the command string on the new node to be added: 
 ```
-root@t4:~# cioctl node add 192.168.3.122 root c3a504d2
+root@t5:~# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
 Adding this node to cluster as a storage node
 <13>May 29 14:43:55 cluster: Copy auto-multiNode-t1.cfg to all nodes (NODE_NUMS:4)
 <13>May 29 14:43:57 cluster: Initialize target
@@ -42,9 +42,25 @@ Adding disk /dev/sdac SSD to storage pool
 <13>May 29 14:45:09 cluster: Starting API
 ```
 
-The creation of new join tokens will be disabled when there are on-going node operations, e.g. cordon, uncordon or removing a node from cluster. 
+Run the `cio node ls` command to see the new node (t5).
+```
+root@t1:~# cio node ls
+NODENAME             IP                NODE_ID    ROLE       STATUS
+t1                   192.168.3.122     01ba0e2c   sds        normal
+t2                   192.168.3.130     c9506d19   backup1    normal
+t4                   192.168.3.103     d582da4f   backup2    normal
+t5                   192.168.3.117     f0c11322   standard   normal
+t3                   192.168.3.84      ab80be13   standard   normal
+```
 
-Wait for the node operation to complete, then run the join-token command again.
+::: tip
+The creation of new join tokens is disabled when there are on-going node operations, e.g. cordon, uncordon or node removal from cluster. 
+
+Wait for the node operation to complete, then run the `cioctl join-token` command again.
+:::
+
+
+
 
 
 
