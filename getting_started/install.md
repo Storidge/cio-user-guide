@@ -25,7 +25,10 @@ Installation completed. cio requires a minimum of 3 local drives per node for da
 To start a cluster, run 'cioctl create' on primary node. To add a node, generate a join token
 with 'cioctl join-token' on sds node. Then run the 'cioctl node add ...' output on this node.
 ```
-**Note:** The installation requires access to system devices so sudo access or root user is needed
+
+::: warning Note 
+The installation requires access to system devices so sudo access or root user is needed
+:::
 
 <h3>Add More Nodes</h3>
 
