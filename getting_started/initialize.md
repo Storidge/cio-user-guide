@@ -66,7 +66,7 @@ The initialization process will take a few minutes to complete for virtual serve
 
 When the cio software is installed on physical servers with high performance devices such as SSDs, the first initialization of the cluster will take about 30 minutes. This extra time is used to characterize the available performance. This performance information is used in the quality-of-service (QoS) feature to deliver guaranteed performance for individual applications.
 
-<h3>Ready To Use</h3>
+<h3>Login dashboard</h3>
 
 If Kubernetes is not detected, the cio software will automatically configure a Docker Swarm cluster. The following example shows a Swarm cluster with three manager nodes and one worker node.
 ```
