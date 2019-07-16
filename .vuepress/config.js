@@ -48,7 +48,7 @@ module.exports = {
               '/getting_started/autoexpand.md',
               '/getting_started/high_availability.md',
               '/getting_started/labels.md',
-              '/getting_started/cordon_for_maintenance.md',
+              '/getting_started/node_maintenance.md',
               '/getting_started/remove_node.md',
               '/getting_started/add_node.md',
               '/getting_started/teardown.md'
