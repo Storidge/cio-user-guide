@@ -1,4 +1,4 @@
-# Node Maintenance
+# Node maintenance
 
 In the lifecycle of a cluster, you may want to upgrade software or hardware components on a node. Storidge supports upgrading nodes while the cluster is online and services continue to run.
 

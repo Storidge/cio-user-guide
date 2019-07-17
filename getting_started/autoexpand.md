@@ -35,7 +35,7 @@ service:
     limit: 3
   compression:
     enabled: no
-    type: lzo
+    algorithm: lzo
   encryption:
     enabled: no
   replication:
