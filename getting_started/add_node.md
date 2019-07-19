@@ -42,6 +42,9 @@ Adding disk /dev/sdac SSD to storage pool
 <13>May 29 14:45:09 cluster: Starting API
 ```
 
-The creation of new join tokens will be disabled when there are on-going node operations, e.g. cordon, uncordon or removing a node from cluster. Wait and re-run the join-token command when the node operation is completed.
+The creation of new join tokens will be disabled when there are on-going node operations, e.g. cordon, uncordon or removing a node from cluster. 
+
+Wait for the node operation to complete, then run the join-token command again.
+
 
 

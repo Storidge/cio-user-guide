@@ -4,10 +4,12 @@ You can remove nodes that are either no longer needed or must be replaced. Befor
 
 First, identify the name of the node you wish to remove. List the nodes in the cluster with `cio node ls`. Next, tell CIO to remove the node:
 ```
-cioctl node remove <node name>
+cioctl node remove NODENAME
 ```
 
 A removed node can be added back to the cluster by running a `cioctl join-token` command and then the `cioctl add ...` command string. However the node will be treated as a new node as all previous history has been erased. 
 
+::: tip
 When a cluster only has three nodes, CIO disables node removal as a minimum of three nodes are required for data redundancy. 
+:::
 

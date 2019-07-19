@@ -9,31 +9,25 @@ After verifying you have a supported distribution, run the convenience script be
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 Example:
-
 ```
-root@c1:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
-Started installing release 2148 at Tue Jan 30 12:47:26 PST 2018
-Loading cio software for: u16  (4.4.0-104-generic)
-...
-...
-...
-latest: Pulling from portainer/portainer
-Digest: sha256:232742dcb04faeb109f1086241f290cb89ad4c0576e75197e902ca6e3bf3a9fc
-Status: Image is up to date for portainer/portainer:latest
-Finished at Tue Jan 30 12:48:04 PST 2018
-cio software installation complete. cio requires a minimum of 3 local drives per node for data redundancy
+root@demo:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+Started installing release 2859 at Tue Jul  9 13:05:15 PDT 2019
+Loading cio software for: u16  (4.4.0-148-generic)
+Reading package lists... Done
+Building dependency tree
+.
+.
+.
+Finished at Tue Jul  9 13:08:39 PDT 2019
 
-Please verify local drives are available, then run 'cioctl create' command on primary node to start a new cluster
+Installation completed. cio requires a minimum of 3 local drives per node for data redundancy.
+
+To start a cluster, run 'cioctl create' on primary node. To add a node, generate a join token
+with 'cioctl join-token' on sds node. Then run the 'cioctl node add ...' output on this node.
 ```
+**Note:** The installation requires access to system devices so sudo access or root user is needed
 
-To check what version of cio is installed on a node run `cio version`:
-
-```
-$ cio version
-Version: V0.9.0-2762
-```
-
-**Install Additional Nodes**
+<h3>Add More Nodes</h3>
 
 The cio software will run with just one node in the cluster. This is great if you just want to get a flavor of the capabilities of the software, and do not need high availability or advanced features like automatic data locality. 
 
@@ -41,3 +35,6 @@ On the other hand, cio allows you to add more nodes to the cluster to increase p
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
+::: tip
+For production deployments, a minimum of four nodes is recommended
+:::

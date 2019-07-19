@@ -9,6 +9,7 @@ Volumes can be created using the `cio volume create` command with the following 
 ```
 volume create parameters
 
+--autoexpand                        enable auto capacity expansion
 --bandwidthmin <min BW>             set min bandwidth in MiB/s
 --bandwidthmax <max BW>             set max bandwidth in MiB/s
 -c | --capacity <size in GB>        volume size in GB
@@ -17,12 +18,14 @@ volume create parameters
 -e | --encryption                   enable encryption
 -f | --filesystem <filesystemtype>  set a filesystem for this volume
 -h | --help                         show usage information
+--increment                         set percentage capacity to auto expand
 --iopsmin <min IOPS>                set min IOPS
 --iopsmax <max IOPS>                set max IOPS
 -I | --interface interface_params   set interface parameters
 --interval <snapshot interval>      snapshot interval in minutes
 --label key'='value                 set a label on this volume
 -l | --level <2 | 3>                set redundancy level to 2 copy or 3 copy
+--limit                             limit number of times capacity automatically increase
 -m | --compress                     enable compression
 -n | --node <nodename>              create volume on named node
 -N | --nodeid <nodeid>              create volume on named node
@@ -32,6 +35,7 @@ volume create parameters
 -q | --quiet                        display the assigned vdisk ID
 -s | --snapshot                     create volume with snapshot enabled
 --snapshotMax <max snapshots>       maximum number of snapshots
+--threshold                         set percentage capacity when expansion is triggered
 -t | --type <SSD | HDD>             set backend drive type
 -v | --volume <volumename>          volume name
 ```
