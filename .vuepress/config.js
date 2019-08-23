@@ -4,7 +4,7 @@ module.exports = {
     title: '', // Title of the website
     description: "A quick walkthrough of CIO capabilities",
     themeConfig: {
-        logo: 'https://storidge.com/wp-content/uploads/2019/04/logo_storidge_automated_2_370x100.png',
+//        logo: 'https://storidge.com/wp-content/uploads/2019/04/logo_storidge_automated_2_370x100.png',
         lastUpdated: 'Last Updated',
         editLink: true,
         editLinkText: 'Help us improve this page!',
@@ -17,7 +17,8 @@ module.exports = {
             { text: 'Support', link: 'https://storidge.com/support' }
         ],
         sidebar: [
-          {
+          ['/', 'Guide Home'],
+        {
             title: 'What is CIO?',
             collapsable: true,
             children: [

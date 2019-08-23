@@ -1,5 +1,6 @@
-<center><h1>Get Started with CIO</h1></center>
-<center><h3>We have a storage solution for you - no matter where you are in your containerization journey</h3></center>
+![Logo](https://i.imgur.com/FfIj2NA.png)
+
+<h1>Get Started with CIO</h1>
 ---
 Storage has a reputation as technology that is difficult to use, and requires expertise to operate. Our goal is to deliver enterprise storage that any one can deploy and use. Storidge's Container I/O (CIO) software is focused on simplifying the life of developers and operators.
 
