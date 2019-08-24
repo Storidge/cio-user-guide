@@ -5,6 +5,17 @@
 CIO comes installed with some example profiles. List the installed profiles with.
 ```
 $ cio profile ls
+PROFILE                                  DATE
+MYSQL                                    Sat Aug 24 15:16:01 2019
+BRONZE                                   Sat Aug 24 15:16:01 2019
+SMALL                                    Sat Aug 24 15:16:01 2019
+INFS                                     Sat Aug 24 15:16:01 2019
+SILVER                                   Sat Aug 24 15:16:01 2019
+MEDIUM                                   Sat Aug 24 15:16:01 2019
+MINIO                                    Sat Aug 24 15:16:01 2019
+GOLD                                     Sat Aug 24 15:16:01 2019
+NGINX                                    Sat Aug 24 15:16:01 2019
+LARGE                                    Sat Aug 24 15:16:01 2019
 ```
 
 <h3>Inspect profile</h3>
@@ -12,6 +23,36 @@ $ cio profile ls
 Display GOLD profile
 ```
 $ cio profile info GOLD
+---
+capacity: 20
+directory: /cio/volumes
+iops:
+  min: 1000
+  max: 2000
+level: 2
+local: no
+provision: thin
+type: ssd
+service:
+  autoexpand:
+    enabled: no
+    threshold: 80
+    increment: 25
+    limit: 3
+  compression:
+    enabled: no
+    algorithm: lzo
+  encryption:
+    enabled: no
+  replication:
+    enabled: no
+    destination: none
+    interval: 120
+    type: synchronous
+  snapshot:
+    enabled: no
+    interval: 60
+    max: 10
 ```
 
 Save GOLD profile to file TEST in your current working directory.
