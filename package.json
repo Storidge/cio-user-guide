@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/Storidge/cio-userguide#readme",
   "dependencies": {
-    "vuepress": "^0.14.10"
+    "vuepress": "^1.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1"
+  }
 }
