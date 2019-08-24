@@ -2,9 +2,9 @@
 
 With the cio software installed on all nodes, the next step is to configure a cluster and then initialize the cluster for use. As part of cluster creation, cio will automatically discover and add drive resources from each node into a storage pool. Drives that are partitioned or have a file system will not be added.
 
-Start configuring a cio storage cluster with the `cioctl create` command. This generates two command strings. 
+Start configuring a cio storage cluster with the `cioctl create` command. This generates two command strings.
 
-The `cioctl join` command string is used to configure additional nodes into the cluster. After configuration, the `cioctl init` command finishes initialization so the cluster is ready for running applications. 
+The `cioctl join` command string is used to configure additional nodes into the cluster. After configuration, the `cioctl init` command finishes initialization so the cluster is ready for running applications.
 
 Example:
 ```
@@ -19,17 +19,29 @@ The first node, from which the `cioctl create` command is run, becomes the sds c
 
 <h3>Single node cluster</h3>
 
-If you are configuring a single node cluster, just run the `cioctl init` command to complete initialization of the cluster.
+To configure a single node cluster, just run `cioctl create --single-node` to create the cluster and automatically complete initialization.
 ```
-[root@c1 ~]# cioctl init f26e695d
-cluster: initialization started
-...
-cluster: Node initialization completed
-cluster: Start cio daemon
-cluster: Succeed: Add vd0: Type:3-copy, Size:20GB
-cluster: MongoDB ready
-cluster: Synchronizing VID files
-cluster: Starting API
+root@ubuntu-16:~# cioctl create --single-node
+Key Generation setup
+Configuring Docker Swarm cluster with Portainer and Agent services
+<13>Aug 24 15:15:36 cluster: initialization started
+<13>Aug 24 15:15:37 cluster: Start node initialization
+<13>Aug 24 15:15:38 node: Clear drives
+<13>Aug 24 15:15:39 node: Load module
+<13>Aug 24 15:15:39 node: Add node backup relationship
+<13>Aug 24 15:15:43 node: Check drives
+Adding disk /dev/sdb SSD to storage pool
+Adding disk /dev/sdc SSD to storage pool
+Adding disk /dev/sdd SSD to storage pool
+<13>Aug 24 15:15:54 node: Collect drive IOPS and BW: Total IOPS:32553  Total BW:2175.7MB/s
+<13>Aug 24 15:15:54 node: Initializing metadata
+<13>Aug 24 15:15:54 cluster: Node initialization completed
+<13>Aug 24 15:15:55 cluster: Start cio daemon
+<13>Aug 24 15:15:59 cluster: Succeed: Add vd0: Type:2-copy, Size:20GB
+<13>Aug 24 15:16:00 cluster: MongoDB ready
+<13>Aug 24 15:16:01 cluster: Synchronizing VID files
+<13>Aug 24 15:16:05 cluster: Starting API
+<13>Aug 24 15:16:12 cluster: Starting Portainer and Agent
 ```
 
 <h3>Multi node cluster</h3>
