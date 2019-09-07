@@ -12,6 +12,7 @@ module.exports = {
         nav: [
             { text: 'Home', link: 'https://storidge.com', },
             { text: 'Docs', link: 'https://docs.storidge.com' },
+            { text: 'FAQ', link: 'https://faq.storidge.com' },
             { text: 'API', link: 'https://storidge.com/api' },
             { text: 'Support', link: 'https://storidge.com/support' }
         ],
