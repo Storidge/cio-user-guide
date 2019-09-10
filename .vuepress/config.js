@@ -9,7 +9,12 @@ module.exports = {
         {
           'ga': 'UA-102974094-1' // UA-00000000-0
         }
-      ]
+      ],
+      {
+        'sitemap': {
+          hostname: 'https://pake.web.id'
+        },
+      }
     ],
     themeConfig: {
 //        logo: 'https://storidge.com/wp-content/uploads/2019/04/logo_storidge_automated_2_370x100.png',
