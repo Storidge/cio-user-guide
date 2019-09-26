@@ -1,6 +1,12 @@
+---
+title: Use snapshots to protect data for Docker Swarm and Kubernetes
+description: How to use snapshots to protect data for Docker Swarm and Kubernetes
+lang: en-US
+---
+
 # Using snapshots
 
-A snapshot is a copy of the volume's content at a particular point in time. You can use snapshots to protect against data loss. Snapshots are also useful for test environments. You can test data using the snapshot without changing the actual volume. 
+A snapshot is a copy of the volume's content at a particular point in time. You can use snapshots to protect against data loss. Snapshots are also useful for test environments. You can test data using the snapshot without changing the actual volume.
 
 <h3>Create manual snapshots</h3>
 

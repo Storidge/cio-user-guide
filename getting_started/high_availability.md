@@ -1,14 +1,20 @@
+---
+title: Effortless high availability for Docker Swarm and Kubernetes
+description: Get effortless high availability for docker services and Kubernetes pods with storidge
+lang: en-US
+---
+
 # HA for stateful apps
 
 When you have services in production, the priority is to run these services continuously or with minimal interruptions. Delivering a consistent level of operational performance for applications is described as providing high availability (HA). Achieving this objective requires the underlying infrastructure to recover from both physical and software component failures with minimal impact to users.
 
-An orchestration system that scales applications across multiple nodes makes it simple to deliver HA for stateless applications. On the other hand, delivering HA for stateful apps is a lot more challenging. 
+An orchestration system that scales applications across multiple nodes makes it simple to deliver HA for stateless applications. On the other hand, delivering HA for stateful apps is a lot more challenging.
 
 The example below steps through how CIO together with Docker Swarm makes high availability for stateful apps easy.
 
 <h3>HA with CIO and Docker Swarm</h3>
 
-Docker Swarm is a great tool for achieving high availability. If a node fails the scheduler simply restarts the service on another node ... which is awesome for stateless apps. Stateful apps however require data on the failed node to be available before restarting. CIO will swiftly and and fluidly move the required volume to the new node where the stateful app is restarting. Combined, Docker Swarm and CIO make delivering HA for your stateful applications simple. 
+Docker Swarm is a great tool for achieving high availability. If a node fails the scheduler simply restarts the service on another node ... which is awesome for stateless apps. Stateful apps however require data on the failed node to be available before restarting. CIO will swiftly and and fluidly move the required volume to the new node where the stateful app is restarting. Combined, Docker Swarm and CIO make delivering HA for your stateful applications simple.
 
 Using the previous [Docker Stack example](docker_stack_volumes.html) we can see the services and volumes on a 4 node cluster.
 
@@ -21,7 +27,7 @@ v3                   192.168.3.160     6a41aeba   backup2    normal
 v4                   192.168.3.69      75472452   standard   normal
 ```
 
-There are three services and two volumes on this cluster. The portainer service is using volume portainer, and the wp_db service using volume wp_mysql-data. From the `cio volume ls` output we see the portainer service is running on node v2 and the wp_db service is running on node v3. 
+There are three services and two volumes on this cluster. The portainer service is using volume portainer, and the wp_db service using volume wp_mysql-data. From the `cio volume ls` output we see the portainer service is running on node v2 and the wp_db service is running on node v3.
 ```
 root@v1:~# docker service ls
 ID                  NAME                MODE                REPLICAS            IMAGE                        PORTS
@@ -39,7 +45,7 @@ ID                  NAME                IMAGE               NODE                
 u3joxz5yfg4h        wp_db.1             mysql:5.7           v3                  Running             Running 45 seconds ago
 ```
 
-We force a failure of the database service by power cycling or rebooting node v3. `docker service ls` shows that the wp_db service is interrupted and `cio node ls` shows that node v3 is now in maintenance mode. 
+We force a failure of the database service by power cycling or rebooting node v3. `docker service ls` shows that the wp_db service is interrupted and `cio node ls` shows that node v3 is now in maintenance mode.
 ```
 root@v1:~# docker service ls
 ID                  NAME                MODE                REPLICAS            IMAGE                        PORTS
@@ -80,7 +86,7 @@ It's great that the database service is available again, but what happened to th
 </ol>
 
 ```
-root@v1:~# cio events 
+root@v1:~# cio events
 05/12/2019-20:51:04 [info] [DFS] node (6a41aeba) failover completed. hostname=v4, ip address=192.168.3.69 :1019
 05/12/2019-20:51:08 [info] [DFS] volume wp_mysql-data (vd2) created on node f8891810:1009
 05/12/2019-20:51:08 [info] [DFS] volume wp_mysql-data (vd2) removed on node 75472452:1011
@@ -92,7 +98,7 @@ root@v1:~# cio events
 05/12/2019-20:52:01 [info] volume wp_mysql-data (vd2) volume rebuild completed, ret:0:1020
 05/12/2019-20:52:08 [info] volume wp_mysql-data (vd2) locality rebuild completed, ret:0:1020
 ```
-Data redundancy was automatially restored for all volumes using resources of the remaining nodes. 
+Data redundancy was automatially restored for all volumes using resources of the remaining nodes.
 
 <h3>Node recovery</h3>
 Next we check node status with <code>cio node ls</code>. We find that node v3 was 'recoverable' and was automatically added back to the cluster for operation.

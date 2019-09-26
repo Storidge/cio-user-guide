@@ -1,3 +1,9 @@
+---
+title: Why profiles for persistent storage
+description: Why use profiles to create persistent storage for Docker Swarm and Kubernetes
+lang: en-US
+---
+
 # Why profiles
 
 CIO makes it really easy to manage storage through the concept of profiles. Profiles provide a simple way to declare application requirements through YAML formatted files.

@@ -1,3 +1,9 @@
+---
+title: Create persistent storage cluster for Docker Swarm and Kubernetes
+description: Create persistent storage cluster for Docker Swarm and Kubernetes
+lang: en-US
+---
+
 # Initialize cluster
 
 With the cio software installed on all nodes, the next step is to configure a cluster and then initialize the cluster for use. As part of cluster creation, cio will automatically discover and add drive resources from each node into a storage pool. Drives that are partitioned or have a file system will not be added.

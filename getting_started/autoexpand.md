@@ -1,12 +1,18 @@
-# Using auto capacity expansion 
+---
+title: Auto expand docker volume capacity
+description: Use auto capacity expansion to avoid application disruption on Docker Swarm and Kubernetes
+lang: en-US
+---
+
+# Using auto capacity expansion
 
 The auto expansion service ensures applications are not stopped because they ran out of space on a volume. While the CIO software provide notification events at 70, 80 and 90% volume capacity full, an operator must still respond and issue the commands to resize a volume. 
 
-With the auto expansion service, when a pre-defined capacity threshold is crossed, the volume is automatically increased at both the block and file system level. The capacity expansion happens while the application is online, which means there is no disruption to the application. 
+With the auto expansion service, when a pre-defined capacity threshold is crossed, the volume is automatically increased at both the block and file system level. The capacity expansion happens while the application is online, which means there is no disruption to the application.
 
 <h3>Create auto expand volume from CLI</h3>
 
-Enable auto expansion for a volume by using the `--autoexpand` flag during volume creation. Specify the threshold percentage when expansion will be triggered, the percentage capacity to increase, and how many times a volume is allowed to be expanded, e.g. 
+Enable auto expansion for a volume by using the `--autoexpand` flag during volume creation. Specify the threshold percentage when expansion will be triggered, the percentage capacity to increase, and how many times a volume is allowed to be expanded, e.g.
 
 ```
 $ cio volume create auto --capacity 2 --autoexpand yes --threshold 70 --increment 25 --limit 3
@@ -44,7 +50,7 @@ service:
     interval: 120
 ```
 
-Save the profile as AUTO with `cio profile create AUTO`. 
+Save the profile as AUTO with `cio profile create AUTO`.
 
 Create a volume with profile AUTO by running `cio volume create auto -p AUTO`.
 
@@ -90,4 +96,3 @@ cio volume update VOLUMENAME --autoexpand yes
 ```
 
 With the auto expansion service, there are no more worries about individual applications running out of space. Life is much easier because you only need to monitor the capacity of the storage pool.
-

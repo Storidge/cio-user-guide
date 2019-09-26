@@ -1,3 +1,9 @@
+---
+title: Create docker volume with docker run or docker service
+description: Easily create docker volume with docker run or docker service and Storidge volume plugin
+lang: en-US
+---
+
 # Volumes with Docker CLI
 
 Volumes can also be used with Docker containers, services, and [stacks](docker_stack_volumes.html) through the cio volume plugin.

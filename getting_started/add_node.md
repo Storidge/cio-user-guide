@@ -1,3 +1,9 @@
+---
+title: Add storage node to persistent storage cluster
+description: Add storage node to persistent storage cluster for Docker Swarm and Kubernetes
+lang: en-US
+---
+
 # Add node
 
 Expand available capacity and performance by adding new nodes to a cluster. 
@@ -8,7 +14,7 @@ root@t1:~# cioctl join-token
     cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
 ```
 
-Copy and run the command string on the new node to be added: 
+Copy and run the command string on the new node to be added:
 ```
 root@t5:~# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
 Adding this node to cluster as a storage node
@@ -54,13 +60,7 @@ t3                   192.168.3.84      ab80be13   standard   normal
 ```
 
 ::: tip
-The creation of new join tokens is disabled when there are on-going node operations, e.g. cordon, uncordon or node removal from cluster. 
+The creation of new join tokens is disabled when there are on-going node operations, e.g. cordon, uncordon or node removal from cluster.
 
 Wait for the node operation to complete, then run the `cioctl join-token` command again.
 :::
-
-
-
-
-
-

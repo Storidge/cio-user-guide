@@ -1,3 +1,9 @@
+---
+title: Docker volumes for stateful applications
+description: Create docker volume with Storidge for stateful applications 
+lang: en-US
+---
+
 # Using volumes
 
 Volumes are used by applications for persistent storage.

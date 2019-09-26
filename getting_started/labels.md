@@ -1,3 +1,9 @@
+---
+title: Add labels to docker volumes and persistent storage
+description: Add tagging, versioning, staging labels to docker volumes and persistent storage
+lang: en-US
+---
+
 # Using labels
 
 CIO supports volume labels which can be useful for tagging, versioning, staging notes, licensing information, and general organization. Labels are key-value pairs. They can be viewed by running `cio volume info`. Here is an example of labels in use:

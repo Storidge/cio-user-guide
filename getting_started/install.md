@@ -1,3 +1,9 @@
+---
+title: Install persistent storage for Docker Swarm and Kubernetes cluster
+description: Install persistent storage for Docker Swarm and Kubernetes cluster
+lang: en-US
+---
+
 # Install cio
 
 A convenience script installs the community edition of cio software into your development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.

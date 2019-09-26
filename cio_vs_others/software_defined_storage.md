@@ -1,5 +1,11 @@
+---
+title: Software defined storage vs persistent storage for containers
+description: Compare software defined storage and Storidge persistent storage for containers
+lang: en-US
+---
+
 # Software Defined Storage
-As traditional data centers evolved toward virtualized data centers, hardware centric storage systems started becoming “software defined”. These software defined storage (SDS) implementations were usually delivered as virtual storage appliances, i.e. storage software running in VMs. The designs mostly implemented distributed storage that exported volumes through standard storage interfaces. 
+As traditional data centers evolved toward virtualized data centers, hardware centric storage systems started becoming “software defined”. These software defined storage (SDS) implementations were usually delivered as virtual storage appliances, i.e. storage software running in VMs. The designs mostly implemented distributed storage that exported volumes through standard storage interfaces.
 
 The standard storage interfaces, such as NFS or ISCSI, can be integrated into orchestration systems through volume plugins. As with legacy storage, the applications supported by SDS were mostly monolithic and static. However, cloud native apps are orchestrated, scalable, mobile and storage agnostic.
 
@@ -9,8 +15,8 @@ When SDS first appeared, the need for distributed storage was obvious but implem
 
 ## Scalability
 
-Cloud native apps scale vertically. You can run more containers than VMs on the same host resulting in greater contention. 
-SDS solutions incur high latency costs running in a VM. This makes is very difficult to manage application performance. While it is possible to set max performance limits to alleviate noisy neighbor issues, it is impossible to guarantee minimum performance. Providing automated performance management for apps is a CIO capability that enables cloud native apps to scale predictably. 
+Cloud native apps scale vertically. You can run more containers than VMs on the same host resulting in greater contention.
+SDS solutions incur high latency costs running in a VM. This makes is very difficult to manage application performance. While it is possible to set max performance limits to alleviate noisy neighbor issues, it is impossible to guarantee minimum performance. Providing automated performance management for apps is a CIO capability that enables cloud native apps to scale predictably.
 
 The high latency costs of running storage in a VM also makes it a poor fit for NVMe flash. They can only deliver a small fraction of the performance capability, resuling in inefficient use of resources. CIO's design is optimized for low latency to deliver performance from the fastest storage media.
 
