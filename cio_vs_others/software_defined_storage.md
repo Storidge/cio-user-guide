@@ -1,5 +1,5 @@
 ---
-title: Software defined storage vs persistent storage for containers
+title: Software Defined Storage
 description: Compare software defined storage and Storidge persistent storage for containers
 lang: en-US
 ---

@@ -1,6 +1,6 @@
 ---
 title: Compare traditional storage technologies and cloud native storage
-description: Compare traditional storage technologies vs cloud native storage 
+description: Compare traditional storage technologies vs cloud native storage
 lang: en-US
 ---
 

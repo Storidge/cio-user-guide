@@ -1,12 +1,12 @@
 ---
-title: Enterprise storage system vs persistent storage for containers
+title: Enterprise Storage Systems
 description: Compare enterprise storage system and Storidge persistent storage for containers
 lang: en-US
 ---
 
 # Enterprise Storage Systems
 
-Enterprise storage systems (including SAN and NAS) have a long and proven history in virtualized data centers. Using existing networked storage for stateful applications is an easy choice as investments have already been made, trained staff are available and data services in these legacy systems work. The only new requirement are volume plugins to integrate legacy storage into orchestration systems. 
+Enterprise storage systems (including SAN and NAS) have a long and proven history in virtualized data centers. Using existing networked storage for stateful applications is an easy choice as investments have already been made, trained staff are available and data services in these legacy systems work. The only new requirement are volume plugins to integrate legacy storage into orchestration systems.
 
 While legacy storage can be integrated through plugins, the complexity, lack of scalability, need for expensive skill sets and time consuming procedures remains. This directly conflicts with the efficiency, agility and speed benefits that adopting container technology delivers. This is why Storidge purpose built a new distributed storage solution for cloud native apps.
 

@@ -1,5 +1,5 @@
 ---
-title: Compare storage technologies for containers
+title: Overview
 description: Compare traditional storage technologies vs Storidge persistent storage for containers
 lang: en-US
 ---

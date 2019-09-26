@@ -1,5 +1,5 @@
 ---
-title: Cloud native storage for containers
+title: Cloud Native Storage
 description: Compare cloud native storage and Storidge persistent storage for containers
 lang: en-US
 ---
