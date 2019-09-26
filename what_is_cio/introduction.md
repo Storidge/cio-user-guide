@@ -1,5 +1,5 @@
 ---
-title: Introduction to persistent storage for Swarm and Kubernetes
+title: Introduction
 description: How Storidge volumes for Docker Swarm and Kubernetes benefit developers
 lang: en-US
 ---

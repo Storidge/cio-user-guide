@@ -1,10 +1,10 @@
 ---
-title: Effortless high availability for Docker Swarm and Kubernetes
-description: Get effortless high availability for docker services and Kubernetes pods with storidge
+title: High availability
+description: Get effortless high availability for docker services and Kubernetes pods with Storidge
 lang: en-US
 ---
 
-# HA for stateful apps
+# High availability
 
 When you have services in production, the priority is to run these services continuously or with minimal interruptions. Delivering a consistent level of operational performance for applications is described as providing high availability (HA). Achieving this objective requires the underlying infrastructure to recover from both physical and software component failures with minimal impact to users.
 

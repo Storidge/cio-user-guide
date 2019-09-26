@@ -1,6 +1,6 @@
 ---
-title: Cordon and uncordon nodes in persistent storage cluster
-description: Perform online maintenance for persistent storage cluster 
+title: Node maintenance
+description: Perform online maintenance for persistent storage cluster
 lang: en-US
 ---
 

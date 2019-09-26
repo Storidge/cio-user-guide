@@ -1,5 +1,5 @@
 ---
-title: Add labels to docker volumes and persistent storage
+title: Using labels
 description: Add tagging, versioning, staging labels to docker volumes and persistent storage
 lang: en-US
 ---

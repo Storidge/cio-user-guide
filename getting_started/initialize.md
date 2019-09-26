@@ -1,5 +1,5 @@
 ---
-title: Create persistent storage cluster for Docker Swarm and Kubernetes
+title: Initialize cluster
 description: Create persistent storage cluster for Docker Swarm and Kubernetes
 lang: en-US
 ---

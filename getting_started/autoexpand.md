@@ -1,12 +1,12 @@
 ---
-title: Auto expand docker volume capacity
+title: Auto capacity expansion
 description: Use auto capacity expansion to avoid application disruption on Docker Swarm and Kubernetes
 lang: en-US
 ---
 
 # Using auto capacity expansion
 
-The auto expansion service ensures applications are not stopped because they ran out of space on a volume. While the CIO software provide notification events at 70, 80 and 90% volume capacity full, an operator must still respond and issue the commands to resize a volume. 
+The auto expansion service ensures applications are not stopped because they ran out of space on a volume. While the CIO software provide notification events at 70, 80 and 90% volume capacity full, an operator must still respond and issue the commands to resize a volume.
 
 With the auto expansion service, when a pre-defined capacity threshold is crossed, the volume is automatically increased at both the block and file system level. The capacity expansion happens while the application is online, which means there is no disruption to the application.
 

@@ -1,6 +1,6 @@
 ---
-title: Docker volumes for stateful applications
-description: Create docker volume with Storidge for stateful applications 
+title: Using volumes
+description: Create docker volume with Storidge for stateful applications
 lang: en-US
 ---
 

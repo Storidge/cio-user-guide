@@ -1,12 +1,12 @@
 ---
-title: Add storage node to persistent storage cluster
+title: Add node
 description: Add storage node to persistent storage cluster for Docker Swarm and Kubernetes
 lang: en-US
 ---
 
 # Add node
 
-Expand available capacity and performance by adding new nodes to a cluster. 
+Expand available capacity and performance by adding new nodes to a cluster.
 
 Start the node addition by running the `cioctl join-token` command. This generates a command string for adding a new node. Example:
 ```

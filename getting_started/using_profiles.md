@@ -1,5 +1,5 @@
 ---
-title: Using profiles for persistent storage
+title: Using profiles
 description: How to use profiles to create persistent storage for Docker Swarm and Kubernetes
 lang: en-US
 ---

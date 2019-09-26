@@ -1,5 +1,5 @@
 ---
-title: Remove storage node from persistent storage cluster
+title: Remove node
 description: Remove storage node from persistent storage cluster for Docker Swarm and Kubernetes
 lang: en-US
 ---

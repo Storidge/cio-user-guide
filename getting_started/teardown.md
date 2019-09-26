@@ -1,5 +1,5 @@
 ---
-title: Shutdown, reboot or remove persistent storage cluster
+title: Teardown
 description: Shutdown, reboot or remove persistent storage cluster for Docker Swarm and Kubernetes
 lang: en-US
 ---

@@ -1,5 +1,5 @@
 ---
-title: Use snapshots to protect data for Docker Swarm and Kubernetes
+title: Using snapshots
 description: How to use snapshots to protect data for Docker Swarm and Kubernetes
 lang: en-US
 ---

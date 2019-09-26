@@ -1,5 +1,5 @@
 ---
-title: Create docker volume with docker run or docker service
+title: Volumes with Docker CLI
 description: Easily create docker volume with docker run or docker service and Storidge volume plugin
 lang: en-US
 ---

@@ -1,5 +1,5 @@
 ---
-title: Volumes for docker compose and docker stacks
+title: Volumes with Docker Compose
 description: Automatically create docker volumes from docker compose and docker stack files
 lang: en-US
 ---

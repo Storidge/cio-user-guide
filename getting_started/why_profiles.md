@@ -1,5 +1,5 @@
 ---
-title: Why profiles for persistent storage
+title: Why profiles
 description: Why use profiles to create persistent storage for Docker Swarm and Kubernetes
 lang: en-US
 ---
