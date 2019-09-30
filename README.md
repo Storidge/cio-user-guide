@@ -6,7 +6,8 @@ lang: en-US
 
 ![Logo](https://i.imgur.com/FfIj2NA.png)
 
-<h1>Get Started with CIO</h1>
+<h1>Get Started with Storidge CIO</h1>
+<h3>Add a data management platform to Docker Swarm and Kubernetes in 10 minutes</h3>
 ---
 Storage has a reputation as technology that is difficult to use, and requires expertise to operate. Our goal is to deliver enterprise storage that any one can deploy and use. Storidge's Container I/O (CIO) software is focused on simplifying the life of developers and operators.
 
