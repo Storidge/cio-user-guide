@@ -47,5 +47,7 @@ On the other hand, cio allows you to add more nodes to the cluster to increase p
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
-For production deployments, a minimum of four nodes is recommended
+A multi-node configuration requires a minimum of three nodes. Currently two node configurations are not supported.
+
+For production deployments and high availability support, a minimum of four nodes is recommended.
 :::
