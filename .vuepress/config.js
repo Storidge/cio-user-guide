@@ -63,6 +63,7 @@ module.exports = {
               '/getting_started/autoexpand.md',
               '/getting_started/high_availability.md',
               '/getting_started/labels.md',
+              '/getting_started/software_updates.md',
               '/getting_started/node_maintenance.md',
               '/getting_started/remove_node.md',
               '/getting_started/add_node.md',
