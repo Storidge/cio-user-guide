@@ -34,7 +34,7 @@ To start a cluster, run 'cioctl create' on primary node. To add a node, generate
 with 'cioctl join-token' on sds node. Then run the 'cioctl node add ...' output on this node.
 ```
 
-::: warning Note
+::: warning
 The installation requires access to system devices so sudo access or root user is needed
 :::
 
@@ -50,4 +50,10 @@ On the other hand, cio allows you to add more nodes to the cluster to increase p
 A multi-node configuration requires a minimum of three nodes. Currently two node configurations are not supported.
 
 For production deployments and high availability support, a minimum of four nodes is recommended.
+:::
+
+::: warning
+When working with virtual servers, it is common to clone off a base image. For multi-node clusters, verify that the ISCSI initiator name on each node is unique after cluster initialization completes.
+
+On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
