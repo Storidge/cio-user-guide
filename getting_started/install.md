@@ -16,6 +16,12 @@ After verifying you have a supported distribution, run the convenience script be
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
+::: tip
+FTP access may not be allowed from certain countries or locations. Try using http to download and install:
+
+`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+:::
+
 Example:
 ```
 root@demo:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
@@ -45,12 +51,6 @@ The cio software will run with just one node in the cluster. This is great if yo
 On the other hand, cio allows you to add more nodes to the cluster to increase performance, capacity and enable high availability for your applications. Repeat the convenience script installation on all nodes that will be included in the cluster. Run:
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
-
-::: tip
-FTP access may not be allowed from certain countries or locations. Try using http to download and install:
-
-`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
-:::
 
 ::: tip
 A multi-node configuration requires a minimum of three nodes. Currently two node configurations are not supported.
