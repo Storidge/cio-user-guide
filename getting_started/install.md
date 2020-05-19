@@ -47,6 +47,12 @@ On the other hand, cio allows you to add more nodes to the cluster to increase p
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
+FTP access may not be allowed from certain countries or locations. Try using http to download and install:
+
+`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+:::
+
+::: tip
 A multi-node configuration requires a minimum of three nodes. Currently two node configurations are not supported.
 
 For production deployments and high availability support, a minimum of four nodes is recommended.
