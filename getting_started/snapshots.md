@@ -65,7 +65,7 @@ description: Rotating snapshot with auto cleanup
 
 <h3>Rollback Snapshots</h3>
 
-Revert your volume state to a previous snapshot using `cio snapshot rollback <YYYY-MM-DD-HHMM-NODEID-VDID>`
+Revert your volume state to a previous snapshot using `cio snapshot rollback <YYYY-MM-DD-HHMM-NODEID-VDID>`:
 
 ```
 $ cio snapshot rollback 2020-01-28-0052-816a0c7d-0000003
