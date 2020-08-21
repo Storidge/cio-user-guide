@@ -63,6 +63,15 @@ source: vol
 description: Rotating snapshot with auto cleanup
 ```
 
+<h3>Rollback Snapshots</h3>
+
+Revert your volume state to a previous snapshot using `cio snapshot rollback <YYYY-MM-DD-HHMM-NODEID-VDID>`
+
+```
+$ cio snapshot rollback 2020-01-28-0052-816a0c7d-0000003
+Succeed: Rolled back volume snap at /cio/snap/vd3 to snapshot 2020-01-28-0052-816a0c7d-0000003
+```
+
 <h3>Delete snapshots</h3>
 
 Snapshots can be deleted by running `cio snapshot rm $snapshot_id`:
