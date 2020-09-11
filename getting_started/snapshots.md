@@ -63,6 +63,15 @@ source: vol
 description: Rotating snapshot with auto cleanup
 ```
 
+<h3>Clone Snapshots</h3>
+
+Clone a snapshot by running `cio snapshot clone <YYYY-MM-DD-HHMM-NODEID-VDID> <VOLUMENAME>`
+
+```
+$ cio snapshot clone 2020-02-07-1329-69b2ae3a-0000013 snapclone
+Succeed: Cloned snapshot 2020-02-07-1329-69b2ae3a-0000013 to volume snapclone
+```
+
 <h3>Rollback Snapshots</h3>
 
 Revert your volume state to a previous snapshot using `cio snapshot rollback <YYYY-MM-DD-HHMM-NODEID-VDID>`:

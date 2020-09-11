@@ -110,6 +110,24 @@ u3                   vd1       SSD   2-copy                  20GB  32621920  por
 u1                   vd2       SSD   3-copy                  10GB  6fd038a5  wp_mysql-data   
 ```
 
+<h3>Clone Volumes</h3>
+
+To clone an existing volume, run `cio volume clone <SOURCEVOLUMENAME> <DESTINATIONVOLUMENAME>`
+
+```
+$ cio volume ls
+NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
+c1                   vd1       SSD   2-copy                  20GB  a94fb4a2  foo
+
+$ cio volume clone foo newFoo
+Success: This operation will take some time. Run 'cio events' for completion status.
+
+$ cio volume ls
+NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
+c1                   vd1       SSD   2-copy                  20GB  a94fb4a2  foo
+c1                   vd1       SSD   2-copy                  20GB  a94fb4a2  newFoo
+```
+
 <h3>Update volumes</h3>
 
 To modify the parameters of a volume, such as the capacity and the IOPS, use the command `cio volume update $volume_name`. It takes the same parameters as `volume create`, except a target volume is mandatory.
