@@ -3,6 +3,11 @@
 module.exports = {
     title: '', // Title of the website
     description: "A quick walkthrough of CIO capabilities",
+    head: [ ['script', {}, `
+      <!-- Start of HubSpot Embed Code -->
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6369842.js"></script>
+      <!-- End of HubSpot Embed Code -->
+    `]],
     plugins: [
       [
         '@vuepress/google-analytics',
