@@ -21,6 +21,9 @@ Cluster started. The current node is now the primary controller node. To add a s
 After adding all storage nodes, return to this node and run following command to initialize the cluster:
     cioctl init f26e695d
 ```
+
+Note: For Kubernetes, run `cioctl create --kubernetes`
+
 The first node, from which the `cioctl create` command is run, becomes the sds controller node (c1 in example above). This node is identified as the sds node when the `cio node ls` command is run.
 
 <h3>Single node cluster</h3>
