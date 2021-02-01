@@ -74,28 +74,6 @@ module.exports = {
               '/getting_started/add_node.md',
               '/getting_started/teardown.md'
             ]
-          },
-          {
-            title: 'Kubernetes Guide',
-            collapsable: true,
-            children: [
-              '/kubernetes_guide/install.md',
-              '/kubernetes_guide/initialize.md',
-              '/kubernetes_guide/volumes.md',
-              '/kubernetes_guide/docker_volumes.md',
-              '/kubernetes_guide/docker_stack_volumes.md',
-              '/kubernetes_guide/why_profiles.md',
-              '/kubernetes_guide/using_profiles.md',
-              '/kubernetes_guide/snapshots.md',
-              '/kubernetes_guide/autoexpand.md',
-              '/kubernetes_guide/high_availability.md',
-              '/kubernetes_guide/labels.md',
-              '/kubernetes_guide/software_updates.md',
-              '/kubernetes_guide/node_maintenance.md',
-              '/kubernetes_guide/remove_node.md',
-              '/kubernetes_guide/add_node.md',
-              '/kubernetes_guide/teardown.md'
-            ]
           }
         ]
     }
