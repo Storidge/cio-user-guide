@@ -54,7 +54,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Getting Started',
+            title: 'Get Started - Docker Swarm',
             collapsable: true,
             children: [
               '/getting_started/install.md',
