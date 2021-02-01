@@ -4,6 +4,14 @@ description: Install persistent storage for Docker Swarm and Kubernetes cluster
 lang: en-US
 ---
 
+<h1>Getting Started</h1>
+
+Welcome! We are excited that you want to learn more about persistent storage for Docker Swarm. This guide provides steps for getting started with Storidge and Docker Swarm. 
+
+Storidge was built on the idea that operating storage for stateful applications should be really simple. We take a developer-centric approach for cloud native storage so you can focus on applications instead of worrying about infrastructure dependencies.
+
+Step through this guide to see how automating storage operations greatly simplifies the way container storage and cloud native apps work together.
+
 # Install cio
 
 A convenience script installs the community edition of cio software into your development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
@@ -62,6 +70,6 @@ When working with virtual servers, it is common to clone off a base image. For m
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
 
-## Next
+<h2>Next</h2>
 
 With software installation completed, you are ready to configure and [initialize a cluster](https://guide.storidge.com/getting_started/initialize.html).
