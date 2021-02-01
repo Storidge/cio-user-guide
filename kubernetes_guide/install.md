@@ -1,12 +1,12 @@
 ---
 title: Install cio
-description: Install persistent storage for Docker Swarm cluster
+description: Install persistent storage for Kubernetes cluster
 lang: en-US
 ---
 
 <h1>Getting Started</h1>
 
-Welcome! We are excited that you want to learn more about persistent storage for Docker Swarm. This guide provides steps for getting started with Storidge and Docker Swarm. 
+Welcome! We are excited that you want to learn more about persistent storage for Kubernetes. This guide provides steps for getting started with Storidge and stateful applications on Kubernetes. 
 
 Storidge was built on the idea that operating storage for stateful applications should be really simple. We take a developer-centric approach for cloud native storage so you can focus on applications instead of worrying about infrastructure dependencies.
 
