@@ -57,22 +57,35 @@ module.exports = {
             title: 'Docker Swarm Guide',
             collapsable: true,
             children: [
-              '/getting_started/install.md',
-              '/getting_started/initialize.md',
-              '/getting_started/volumes.md',
-              '/getting_started/docker_volumes.md',
-              '/getting_started/docker_stack_volumes.md',
-              '/getting_started/why_profiles.md',
-              '/getting_started/using_profiles.md',
-              '/getting_started/snapshots.md',
-              '/getting_started/autoexpand.md',
-              '/getting_started/high_availability.md',
-              '/getting_started/labels.md',
-              '/getting_started/software_updates.md',
-              '/getting_started/node_maintenance.md',
-              '/getting_started/remove_node.md',
-              '/getting_started/add_node.md',
-              '/getting_started/teardown.md'
+              '/docker_guide/install.md',
+              '/docker_guide/initialize.md',
+              '/docker_guide/volumes.md',
+              '/docker_guide/docker_volumes.md',
+              '/docker_guide/docker_stack_volumes.md',
+              '/docker_guide/why_profiles.md',
+              '/docker_guide/using_profiles.md',
+              '/docker_guide/snapshots.md',
+              '/docker_guide/autoexpand.md',
+              '/docker_guide/high_availability.md',
+              '/docker_guide/labels.md',
+              '/docker_guide/software_updates.md',
+              '/docker_guide/node_maintenance.md',
+              '/docker_guide/remove_node.md',
+              '/docker_guide/add_node.md',
+              '/docker_guide/teardown.md'
+            ]
+          },
+          {
+            title: 'Kubernetes Guide',
+            collapsable: true,
+            children: [
+              '/kubernetes_guide/install.md',
+              '/kubernetes_guide/initialize.md',
+              '/kubernetes_guide/software_updates.md',
+              '/kubernetes_guide/node_maintenance.md',
+              '/kubernetes_guide/remove_node.md',
+              '/kubernetes_guide/add_node.md',
+              '/kubernetes_guide/teardown.md'
             ]
           }
         ]
