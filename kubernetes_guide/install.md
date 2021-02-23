@@ -72,4 +72,4 @@ On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.i
 
 <h2>Next</h2>
 
-With software installation completed, you are ready to configure and [initialize a cluster](https://guide.storidge.com/getting_started/initialize.html).
+With software installation completed, you are ready to configure and [initialize a cluster](https://guide.storidge.com/kubernetes_guide/initialize.html).
