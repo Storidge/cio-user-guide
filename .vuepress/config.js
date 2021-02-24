@@ -54,6 +54,19 @@ module.exports = {
             ]
           },
           {
+            title: 'Kubernetes Guide',
+            collapsable: true,
+            children: [
+              '/kubernetes_guide/install.md',
+              '/kubernetes_guide/initialize.md',
+              '/kubernetes_guide/software_updates.md',
+              '/kubernetes_guide/node_maintenance.md',
+              '/kubernetes_guide/remove_node.md',
+              '/kubernetes_guide/add_node.md',
+              '/kubernetes_guide/teardown.md'
+            ]
+          },
+          {
             title: 'Docker Swarm Guide',
             collapsable: true,
             children: [
@@ -73,19 +86,6 @@ module.exports = {
               '/docker_guide/remove_node.md',
               '/docker_guide/add_node.md',
               '/docker_guide/teardown.md'
-            ]
-          },
-          {
-            title: 'Kubernetes Guide',
-            collapsable: true,
-            children: [
-              '/kubernetes_guide/install.md',
-              '/kubernetes_guide/initialize.md',
-              '/kubernetes_guide/software_updates.md',
-              '/kubernetes_guide/node_maintenance.md',
-              '/kubernetes_guide/remove_node.md',
-              '/kubernetes_guide/add_node.md',
-              '/kubernetes_guide/teardown.md'
             ]
           }
         ]
