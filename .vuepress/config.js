@@ -57,6 +57,7 @@ module.exports = {
             title: 'Kubernetes Guide',
             collapsable: true,
             children: [
+              '/kubernetes_guide/getting_started.md',
               '/kubernetes_guide/install.md',
               '/kubernetes_guide/initialize.md',
               '/kubernetes_guide/software_updates.md',
