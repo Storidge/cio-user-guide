@@ -10,13 +10,13 @@ With the cio software installed on all nodes, the next step is to configure a cl
 
 <h2>1. Create cluster</h2>
 
-Start configuring a cio storage cluster with the `cioctl create` command. This generates two command strings.
+Start configuring a cio storage cluster with the `cioctl create --kubernetes` command. This generates two command strings.
 
 The `cioctl join` command string is used to configure additional nodes into the cluster. After configuration, the `cioctl init` command finishes initialization so the cluster is ready for running applications.
 
 Example:
 ```
-[root@c1 ~]# cioctl create
+[root@c1 ~]# cioctl create --kubernetes
 Cluster started. The current node is now the primary controller node. To add a storage node to this cluster, run the following command:
     cioctl join 192.168.3.95 root f26e695d
 
