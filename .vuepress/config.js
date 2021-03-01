@@ -60,6 +60,8 @@ module.exports = {
               '/kubernetes_guide/getting_started.md',
               '/kubernetes_guide/install.md',
               '/kubernetes_guide/initialize.md',
+              '/kubernetes_guide/volume_dynamic_provision',
+              '/kubernetes_guide/volume_capacity_expansion',
               '/kubernetes_guide/software_updates.md',
               '/kubernetes_guide/node_maintenance.md',
               '/kubernetes_guide/remove_node.md',
