@@ -11,7 +11,7 @@ lang: en-US
 
 Storage has a reputation as technology that is difficult to use, and requires expertise to operate. Our goal at Storidge is to change the user experience and deliver enterprise storage capabilities that any one can deploy and use. 
 
-Storidge's Container I/O (CIO) software is focused on simplifying the life of developers and operators. We eliminate the need to manage storage infrastructure by automating storage operations. In addition we take a developer centric approach, with built-in assumption that key users will be developers focused on applications, instead of administrators focused on infrastructure. 
+Storidge's Container I/O (CIO) software aims to simplify the life of developers and operators. We eliminate the need to manage storage infrastructure by automating storage operations. In addition we take a developer centric approach, with built-in assumption that key users will be developers focused on applications, instead of administrators focused on infrastructure. 
 
 This [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) identifies key capabilities and benefits of the Storidge software for developers and operators.
 

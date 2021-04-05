@@ -63,23 +63,37 @@ When the cio software is installed on physical servers with high performance dev
 
 Add the worker nodes to the Kubernetes control plane so pods can be scheduled.
 
-Run `kubeadm token create --print-join-command` on a master node. Copy the `kubeadm join ...` c>
+Run `kubeadm token create --print-join-command` on a master node. Copy the `kubeadm join ...` command string, and run on each of the worker nodes.
 
 Example:
 ```
 root@master:~/examples# kubeadm token create --print-join-command
-kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token-ca-cert-hash s>
+kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token-ca-cert-hash sha256:d748737fa0b8f5f9145381cb681f5fbc41a1860ecd805e77cdce93acd92e07f2
+```
+
+After the worker nodes have been added, you can confirm with `kubectl get nodes`.
+
+Example:
+```
+root@master:~# kubectl get nodes
+NAME      STATUS   ROLES    AGE     VERSION
+kmaster   Ready    master   69d     v1.19.2
+worker1   Ready    <none>   4m57s   v1.19.2
+worker2   Ready    <none>   18s     v1.19.2
+worker3   Ready    <none>   12s     v1.19.2
+worker4   Ready    <none>   2m1s    v1.19.2
 ```
 
 <h2>4. Install kubeconfig and CSI Driver</h2>
 
-Install the kubeconfig file for storidge user and the CSI driver to dynamically provision volum>
+Install the kubeconfig file for storidge user and the CSI driver to dynamically provision volumes from Kubernetes. 
 
 Ensure you have the following prerequisites:
 - Kubernetes v1.15+
 - Storidge CIO cluster
 - Enabled `--allow-privileged` on Kubernetes API Server and kubelet
-- Set the following feature gates: `--feature-gates=VolumeSnapshotDataSource=true,KubeletPlugin>
+
+Install the kubeconfig file for storidge user and the CSI driver to dynamically provision volumes from Kubernetes. 
 
 On master node run:
 
