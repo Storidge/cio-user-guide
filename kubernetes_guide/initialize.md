@@ -100,3 +100,39 @@ On master node run:
 ```
 curl -fsSL ftp://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
 ```
+
+Verify that the csi driver has been deployed with `kubectl get pods -A`
+
+Example:
+```
+root@kmaster:~# kubectl get pods -A
+NAMESPACE     NAME                                       READY   STATUS        RESTARTS   AGE
+default       config-move-5f27j                          1/1     Terminating   0          27s
+default       config-move-6lqp4                          1/1     Terminating   0          27s
+default       config-move-bhg8n                          1/1     Terminating   0          27s
+default       config-move-bqcf5                          1/1     Terminating   0          27s
+kube-system   calico-kube-controllers-744cfdf676-65bjr   1/1     Running       5          69d
+kube-system   calico-node-567pj                          1/1     Running       0          19d
+kube-system   calico-node-gcbrs                          1/1     Running       5          69d
+kube-system   calico-node-gkxf5                          1/1     Running       0          68m
+kube-system   calico-node-hhw6c                          1/1     Running       0          19d
+kube-system   calico-node-thn9g                          1/1     Running       0          19d
+kube-system   coredns-f9fd979d6-9tskh                    1/1     Running       5          69d
+kube-system   coredns-f9fd979d6-rczkk                    1/1     Running       5          69d
+kube-system   csi-cio-27cl7                              2/2     Running       0          9s
+kube-system   csi-cio-c4vjc                              2/2     Running       0          9s
+kube-system   csi-cio-controller-7967955cfb-8gkf6        6/6     Running       0          10s
+kube-system   csi-cio-p56cz                              2/2     Running       0          9s
+kube-system   csi-cio-w5rkw                              2/2     Running       0          9s
+kube-system   etcd-kmaster                               1/1     Running       5          69d
+kube-system   kube-apiserver-kmaster                     1/1     Running       6          69d
+kube-system   kube-controller-manager-kmaster            1/1     Running       11         69d
+kube-system   kube-proxy-5fgv5                           1/1     Running       0          19d
+kube-system   kube-proxy-5q6xx                           1/1     Running       0          68m
+kube-system   kube-proxy-9p464                           1/1     Running       5          69d
+kube-system   kube-proxy-hl8mq                           1/1     Running       0          19d
+kube-system   kube-proxy-wvxhg                           1/1     Running       0          19d
+kube-system   kube-scheduler-kmaster                     1/1     Running       10         69d
+```
+
+The example above shows the csi-cio-controller and csi-cio drivers deployed on 4 nodes of the kube cluster. 
