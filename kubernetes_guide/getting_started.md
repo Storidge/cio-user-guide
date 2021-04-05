@@ -14,10 +14,12 @@ Step through this guide to see how automating storage operations greatly simplif
 
 <h2>Prerequisites</h2>
 
-A convenience script installs the community edition of cio software into your development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
+The minimum supported size for a Storidge cluster is three nodes. For evaluation purposes, a single node cluster can be configured.  
 
-Storidge's cio software currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 18.04LTS (4.15 kernel), and Ubuntu 20.04LTS (5.4 kernel).
+Each node must include three data drives to ensure data redundancy. Please refer to [prerequisites](https://docs.storidge.com/prerequisites/hardware.html) for additional details. 
+
+Storidge currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 18.04LTS (4.15 kernel), and Ubuntu 20.04LTS (5.4 kernel).
 
 <h2>Next</h2>
 
-Start by installing Storidge's cio software [here](https://guide.storidge.com/kubernetes_guide/install.html).
+Start by installing Storidge's CIO software [here](https://guide.storidge.com/kubernetes_guide/install.html).

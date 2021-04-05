@@ -5,6 +5,10 @@ lang: en-US
 ---
 <h1>Install cio</h1>
 
+A convenience script installs the community edition of cio software into your development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
+
+Storidge's cio software currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 18.04LTS (4.15 kernel), and Ubuntu 20.04LTS (5.4 kernel).
+
 After verifying you have a supported distribution, run the convenience script below to begin installation.
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
